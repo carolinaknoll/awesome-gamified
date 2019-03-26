@@ -1,0 +1,77 @@
+.brightly-theme .footer-top {
+  background: #eceff1;
+}
+
+.brightly-theme .footer-bottom {
+  background: #cfd8dc;
+}
+
+.nightly-theme .footer-top {
+  background: #1d2129;
+}
+
+.nightly-theme .footer-bottom {
+  background: #15181e;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.footer-top,
+.footer-bottom {
+  transition: 1s;
+  width: 100%;
+}
+
+.footer-top {
+  min-height: 100px;
+}
+
+.footer-bottom {
+  min-height: 60px;
+}
+
+.footer p {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.footer .social-list {
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  padding-top: 15px;
+}
+
+.footer-bottom .fa {
+  color: #CC4949;
+}
+
+.footer .social-list {
+  margin-left: 0;
+  padding-left: 0;
+  text-align: center;
+}
+
+.social-small-box {
+  background: #CC6666;
+  -moz-box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
+  box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
+  color: #f2ff63;
+  display: inline-block;
+  font-size: 40px;
+  height: 60px;
+  line-height: 1.5;
+  margin: 2px;
+  padding: 2px;
+  text-align: center;
+  width: 60px;
+}
+
+.social-list .social-icon {
+  color: #fff;
+}

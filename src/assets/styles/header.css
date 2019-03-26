@@ -1,0 +1,8 @@
+.header {
+  text-align: center;
+}
+
+.header .title,
+.header .subtitle {
+  margin: 10px 0 0;
+}
