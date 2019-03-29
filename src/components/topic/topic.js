@@ -13,12 +13,12 @@ export default class Topic extends Component {
       <div className="topic">
         {
           topicsEn.map((topic) =>
-            <div>
+            <div className="topic-box">
+              <i className={`icon ${topic.icon}`}></i>
               <h2>{topic.name}</h2>
-
               <ul>
                 {
-                  Object.keys(topic.topics).map((subtopic, i) =>
+                  Object.keys(topic.subtopics).map((subtopic, i) =>
                     <li key={i}>{subtopic}</li>
                   )
                 }

@@ -1,8 +1,8 @@
 let topicsEn = [{
   name: 'Emotional Intelligence',
-  icon: 'fas icon-class',
+  icon: 'far fa-laugh-beam',
   color: '#000',
-  topics: {
+  subtopics: {
     'Self Awareness': [{
       name: 'Self Awareness',
       url: 'https://www.linkedin.com/pulse/self-awareness-bruno-leonardo-michels/'
@@ -19,9 +19,9 @@ let topicsEn = [{
 },
 {
   name: 'Political Science',
-  icon: 'fas icon-class',
+  icon: 'fas fa-users-cog',
   color: '#000',
-  topics: {
+  subtopics: {
     'Political Science': [{
       name: 'Political Science',
       url: 'https://www.youtube.com/playlist?list=PLIBtb_NuIJ1zs1gI2nYdZk6wL606nGOQ9'
