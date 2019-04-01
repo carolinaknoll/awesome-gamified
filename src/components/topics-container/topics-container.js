@@ -11,7 +11,9 @@ export default class TopicsContainer extends Component {
 	render() {
     return (
       <div className="topics-container">
-        <Topic />
+        <Topic
+          isNightlyTheme={this.props.isNightlyTheme}
+        />
       </div>
     );
 	}

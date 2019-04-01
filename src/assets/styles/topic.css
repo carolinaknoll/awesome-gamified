@@ -1,23 +1,21 @@
 .topic-box {
-  background: navy;
-  border: 2px solid cyan;
+  border: 2px solid;
   border-radius: 20px;
   margin: 40px;
   padding: 5px;
   position: relative;
+  transition: 1s;
   width: 200px;
-  z-index: 1;
 }
 
 .topic-box .icon {
-  background: navy;
   border-radius: 20px;
-  border: 2px solid cyan;
+  border: 2px solid;
   font-size: 40px;
   padding: 5px;
   margin: 20px;
   position: absolute;
   right: 50%;
   top: -50px;
-  z-index: 2;
+  transition: 1s;
 }

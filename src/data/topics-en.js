@@ -1,7 +1,8 @@
 let topicsEn = [{
   name: 'Emotional Intelligence',
   icon: 'far fa-laugh-beam',
-  color: '#000',
+  nightlyBackground: '#000',
+  brightlyBackground: '#FFF',
   subtopics: {
     'Self Awareness': [{
       name: 'Self Awareness',
@@ -20,7 +21,8 @@ let topicsEn = [{
 {
   name: 'Political Science',
   icon: 'fas fa-users-cog',
-  color: '#000',
+  nightlyBackground: '#000',
+  brightlyBackground: '#FFF',
   subtopics: {
     'Political Science': [{
       name: 'Political Science',

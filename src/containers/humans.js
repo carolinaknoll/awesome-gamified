@@ -31,7 +31,9 @@ export default class HumanS extends Component {
             </button>
           </div>
 
-          <TopicsContainer />
+          <TopicsContainer
+            isNightlyTheme={this.state.isNightlyTheme}
+          />
         </div>
 
         <Footer />
