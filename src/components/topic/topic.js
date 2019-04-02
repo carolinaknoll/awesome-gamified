@@ -22,28 +22,36 @@ export default class Topic extends Component {
     }
   }
 
+  renderTopicSubtopicEntries = () => {
+    return topicsEn.map((topic) =>
+      <div className="topic-box" style={this.addThemedStyles(topic)}>
+        <i className={`icon ${topic.icon}`} style={this.addThemedStyles(topic)}></i>
+        <h2>{topic.name}</h2>
+
+        {
+          topic.subtopics.map((subtopic, index) => {
+
+            return Object.keys(subtopic).map((subject) => {
+
+              return subtopic[subject].map((entry) => {
+
+                return  <div className="topics-content">
+                          <h3>{subject}</h3>
+                          <a href={entry.url}>{entry.name}</a>
+                        </div>
+              })
+            })
+          })
+        }
+
+      </div>
+    )
+  }
+
 	render() {
     return (
       <div className="topic">
-        {
-          topicsEn.map((topic) =>
-            <div className="topic-box" style={this.addThemedStyles(topic)}>
-              <i className={`icon ${topic.icon}`} style={this.addThemedStyles(topic)}></i>
-
-              <h2>{topic.name}</h2>
-
-              <ul>
-                {
-                  Object.keys(topic.subtopics).map((subtopic, i) =>
-                    <li key={i}>{subtopic}</li>
-                  )
-                }
-              </ul>
-
-            </div>
-          )
-        }
-
+        {this.renderTopicSubtopicEntries()}
       </div>
     );
 	}

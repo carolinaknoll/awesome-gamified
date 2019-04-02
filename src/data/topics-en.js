@@ -3,7 +3,7 @@ let topicsEn = [{
   icon: 'far fa-laugh-beam',
   nightlyBackground: '#000',
   brightlyBackground: '#FFF',
-  subtopics: {
+  subtopics: [{
     'Self Awareness': [{
       name: 'Self Awareness',
       url: 'https://www.linkedin.com/pulse/self-awareness-bruno-leonardo-michels/'
@@ -16,19 +16,19 @@ let topicsEn = [{
       name: 'Test',
       url: 'Test'
     }],
-  },
+  }],
 },
 {
   name: 'Political Science',
   icon: 'fas fa-users-cog',
   nightlyBackground: '#000',
   brightlyBackground: '#FFF',
-  subtopics: {
+  subtopics: [{
     'Political Science': [{
       name: 'Political Science',
       url: 'https://www.youtube.com/playlist?list=PLIBtb_NuIJ1zs1gI2nYdZk6wL606nGOQ9'
     }],
-  },
+  }],
 }];
 
 export default topicsEn;
