@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
 import Topic from '../topic/topic';
+import SubjectsTree from '../subjects-tree/subjects-tree';
 
 export default class TopicsContainer extends Component {
   constructor(props) {
@@ -14,6 +15,8 @@ export default class TopicsContainer extends Component {
         <Topic
           isNightlyTheme={this.props.isNightlyTheme}
         />
+
+        <SubjectsTree/>
       </div>
     );
 	}

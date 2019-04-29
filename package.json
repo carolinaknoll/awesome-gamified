@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/carolinaknoll/humans#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-ui-tree": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
