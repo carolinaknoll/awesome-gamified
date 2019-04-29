@@ -2,20 +2,37 @@
   border: 2px solid;
   border-radius: 20px;
   margin: 40px;
-  padding: 5px;
+  padding: 10px;
   position: relative;
   transition: 1s;
-  width: 200px;
+  width: 300px;
 }
 
 .topic-box .icon {
   border-radius: 20px;
-  border: 2px solid;
-  font-size: 40px;
-  padding: 5px;
-  margin: 20px;
-  position: absolute;
-  right: 50%;
-  top: -50px;
   transition: 1s;
+}
+
+.topic-box .topic-icon {
+  font-size: 40px;
+  border: 2px solid;
+  padding: 5px;
+  position: absolute;
+  margin: 20px;
+  right: 110px;
+  top: -50px;
+}
+
+.topic-box .content-icon {
+  font-size: 16px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.topic-box .topic-name {
+  text-align: center;
+}
+
+.topic-box .subject-title {
+  margin-bottom: 0;
 }

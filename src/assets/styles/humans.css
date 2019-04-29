@@ -11,7 +11,15 @@ html, body {
 }
 
 a {
-  color: #CC4949;
+  transition: 1s;
+}
+
+.nightly-theme a {
+  color: #bfbfbf;
+}
+
+.brightly-theme a {
+  color: #404040;
 }
 
 .content-container {

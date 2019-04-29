@@ -1,8 +1,8 @@
 let topicsEn = [{
   name: 'Emotional Intelligence',
   icon: 'far fa-laugh-beam',
-  nightlyBackground: '#000',
-  brightlyBackground: '#FFF',
+  nightlyBackground: '#006622',
+  brightlyBackground: '#66ff99',
   subtopics: [{
     'Self Awareness': [{
       name: 'Self Awareness',
@@ -21,11 +21,11 @@ let topicsEn = [{
 {
   name: 'Political Science',
   icon: 'fas fa-users-cog',
-  nightlyBackground: '#000',
-  brightlyBackground: '#FFF',
+  nightlyBackground: '#800000',
+  brightlyBackground: '#ff8080',
   subtopics: [{
     'Political Science': [{
-      name: 'Political Science',
+      name: 'PragerU Playlist on Political Science',
       url: 'https://www.youtube.com/playlist?list=PLIBtb_NuIJ1zs1gI2nYdZk6wL606nGOQ9'
     }],
   }],

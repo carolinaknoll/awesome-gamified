@@ -25,8 +25,8 @@ export default class Topic extends Component {
   renderTopicSubtopicEntries = () => {
     return topicsEn.map((topic) =>
       <div className="topic-box" style={this.addThemedStyles(topic)}>
-        <i className={`icon ${topic.icon}`} style={this.addThemedStyles(topic)}></i>
-        <h2>{topic.name}</h2>
+        <i className={`icon topic-icon ${topic.icon}`} style={this.addThemedStyles(topic)}></i>
+        <h2 className="topic-name">{topic.name}</h2>
 
         {
           topic.subtopics.map((subtopic, index) => {
@@ -36,8 +36,8 @@ export default class Topic extends Component {
               return subtopic[subject].map((entry) => {
 
                 return  <div className="topics-content">
-                          <h3>{subject}</h3>
-                          <a href={entry.url}>{entry.name}</a>
+                          <h3 className="subject-title">{subject}</h3>
+                          <i className={`icon content-icon ${topic.icon}`}></i><a href={entry.url}>{entry.name}</a>
                         </div>
               })
             })
