@@ -12,11 +12,12 @@ export default class TopicsContainer extends Component {
 	render() {
     return (
       <div className="topics-container">
+        <SubjectsTree/>
+
         <Topic
           isNightlyTheme={this.props.isNightlyTheme}
         />
 
-        <SubjectsTree/>
       </div>
     );
 	}

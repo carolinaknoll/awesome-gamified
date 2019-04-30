@@ -32,9 +32,40 @@ export default class SubjectsTree extends Component {
     this.getSubjectEntries();
   }
 
+  renderSubjectTree = () => {
+    const {subjects} = this.state;
+
+    if (subjects) {
+      return (
+        Object.keys(subjects).map((subject) => {
+          return (
+            <div>
+              <h3>{subject}</h3>
+              {this.renderSubjectSubjects(subjects, subject)}
+            </div>
+          )
+        })
+      )
+    }
+  }
+
+
+  renderSubjectSubjects = (subjects, subject) => {
+    return subjects[subject].map((entry) => {
+      return (
+        <div>
+          <a href={entry.url}>
+            <p>{entry.name}</p>
+          </a>
+        </div>
+      )
+    })
+  }
+
 	render() {
     return (
       <div className="subjects">
+        {this.renderSubjectTree()}
       </div>
     );
 	}
