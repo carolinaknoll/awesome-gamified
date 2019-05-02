@@ -1,10 +1,8 @@
 ### humans
-:school_satchel: HumanS - A Human School for the good, the beautiful and the delicate topics we have to learn ourselves.
+:eyeglasses: Awesome Gamified - See your progress and save awesome links you've already seen!
 
 ***
 
-HumanS is a project with the idea of turning list data like awesome lists, like awesome-mental-health and awesome-programming, into gamified experiences. 
-
-Each subject will have it's own badge, which you will be able to mark as complete or not. There will also be routes called 'skill trees' where if there is a topic of study you would like to learn more about, you can follow the content in a tree-like structure, and mark that content complete. In the future, you will be able to count your skill points and receive different titles based on the topics you've learned. 
+Awesome Gamified is a project with the idea of turning awesome lists like awesome-mental-health and awesome-programming into gamified experiences. As it is being developed, it will soon have functionalities like saving the links you have already seen and showing them on a different screen for easy access.
 
 If you would like to contribute, please refer to the CONTRIBUTING file for this project. It would be awesome to have some help with content and code review. Thank you!
