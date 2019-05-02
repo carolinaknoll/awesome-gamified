@@ -2,3 +2,22 @@
   background: #1d2129;
   max-width: 400px;
 }
+
+.subjects .subject-title {
+  display: inline;
+  pointer-events: none;
+}
+
+.subjects .chevron-icon {
+  margin-right: 5px;
+  pointer-events: none;
+}
+
+.subject-container {
+  display: none;
+}
+
+.subject-container.open {
+  display: block;
+  max-height: 100%;
+}

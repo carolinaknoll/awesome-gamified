@@ -5,7 +5,10 @@ export default class SubjectsTree extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      errorMessage: '',
+      subjects: {},
+    };
   }
 
   getSubjectEntries = () => {
@@ -40,8 +43,14 @@ export default class SubjectsTree extends Component {
         Object.keys(subjects).map((subject) => {
           return (
             <div>
-              <h3>{subject}</h3>
-              {this.renderSubjectSubjects(subjects, subject)}
+              <div onClick={(e) => this.toggleTopicOpenClass(e)}>
+                <i className='chevron-icon fas fa-chevron-circle-right'></i>
+                <h3 className="subject-title">{subject}</h3>
+              </div>
+
+              <div className='subject-container'>
+                {this.renderSubjectTopics(subjects, subject)}
+              </div>
             </div>
           )
         })
@@ -49,15 +58,31 @@ export default class SubjectsTree extends Component {
     }
   }
 
+  toggleTopicOpenClass = (e) => {
+    e.target.nextSibling.classList.toggle('open');
+    this.toggleChevronClass(e);
+  }
 
-  renderSubjectSubjects = (subjects, subject) => {
-    return subjects[subject].map((entry) => {
+  toggleChevronClass = (e) => {
+    if (e) {
+      let chevronIcon = e.target.querySelector('.chevron-icon');
+
+      if (chevronIcon.classList.contains('fa-chevron-circle-right')) {
+        chevronIcon.classList.remove('fa-chevron-circle-right');
+        chevronIcon.classList.add('fa-chevron-circle-down');
+      } else {
+        chevronIcon.classList.remove('fa-chevron-circle-down');
+        chevronIcon.classList.add('fa-chevron-circle-right');
+      }
+    }
+  }
+
+  renderSubjectTopics = (subjects, subject) => {
+    return subjects[subject].map((topic) => {
       return (
-        <div>
-          <a href={entry.url}>
-            <p>{entry.name}</p>
-          </a>
-        </div>
+        <a href={topic.url}>
+          <p>{topic.name}</p>
+        </a>
       )
     })
   }
