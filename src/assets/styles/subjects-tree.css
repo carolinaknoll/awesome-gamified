@@ -1,6 +1,23 @@
 .subjects {
+  max-width: 450px;
+}
+
+.nightly-theme .subjects {
   background: #1d2129;
-  max-width: 400px;
+}
+
+.brightly-theme .subjects {
+  background: #FFF;
+}
+
+.nightly-theme .subject-container:hover,
+.nightly-theme .topic-container:hover {
+  background: #353c4b;
+}
+
+.brightly-theme .subject-container:hover,
+.brightly-theme .topic-container:hover {
+  background: #e1e4ea;
 }
 
 .subjects .subject-title {
@@ -13,11 +30,20 @@
   pointer-events: none;
 }
 
-.subject-container {
+.topic-list-container {
   display: none;
 }
 
-.subject-container.open {
+.topic-list-container.open {
   display: block;
   max-height: 100%;
+}
+
+.topic-list-container.open .topic-icon {
+  margin-left: 15px;
+}
+
+.topic-list-container.open .topic-name {
+  display: inline;
+  margin: 0 10px;
 }

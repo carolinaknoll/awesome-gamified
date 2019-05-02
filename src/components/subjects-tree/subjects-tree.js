@@ -42,13 +42,13 @@ export default class SubjectsTree extends Component {
       return (
         Object.keys(subjects).map((subject) => {
           return (
-            <div>
-              <div onClick={(e) => this.toggleTopicOpenClass(e)}>
+            <div className="subjects-tree-container">
+              <div className="subject-container" onClick={(e) => this.toggleTopicOpenClass(e)}>
                 <i className='chevron-icon fas fa-chevron-circle-right'></i>
                 <h3 className="subject-title">{subject}</h3>
               </div>
 
-              <div className='subject-container'>
+              <div className='topic-list-container'>
                 {this.renderSubjectTopics(subjects, subject)}
               </div>
             </div>
@@ -80,9 +80,13 @@ export default class SubjectsTree extends Component {
   renderSubjectTopics = (subjects, subject) => {
     return subjects[subject].map((topic) => {
       return (
-        <a href={topic.url}>
-          <p>{topic.name}</p>
-        </a>
+        <div className="topic-container">
+          <i className="topic-icon far fa-bookmark"></i>
+
+          <a href={topic.url}>
+            <p className="topic-name">{topic.name}</p>
+          </a>
+        </div>
       )
     })
   }
