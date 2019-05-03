@@ -4,11 +4,11 @@ import {HashRouter, Route, Switch} from 'react-router-dom';
 
 import './index.css';
 
-import Humans from './containers/humans';
+import AwesomeGamified from './containers/awesome-gamified';
 
 ReactDOM.render(
   <HashRouter>
-    <Route exact path='/' component={Humans} />
+    <Route exact path='/' component={AwesomeGamified} />
   </HashRouter>,
   document.getElementById('root'),
 );

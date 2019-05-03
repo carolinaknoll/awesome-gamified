@@ -1,7 +1,7 @@
 {
-  "name": "humans",
+  "name": "awesome-gamified",
   "version": "1.0.0",
-  "description": "HumanS - A Human School for the good, the beautiful and the delicate topics we have to learn ourselves.",
+  "description": "Awesome Gamified - See your progress and save awesome links you've already seen!",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --mode development --open --hot",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carolinaknoll/humans.git"
+    "url": "git+https://github.com/carolinaknoll/awesome-gamified.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/carolinaknoll/humans/issues"
+    "url": "https://github.com/carolinaknoll/awesome-gamified/issues"
   },
-  "homepage": "https://github.com/carolinaknoll/humans#readme",
+  "homepage": "https://github.com/carolinaknoll/awesome-gamified#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.8.3",

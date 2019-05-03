@@ -1,4 +1,4 @@
-### humans
+### Awesome Gamified
 :eyeglasses: Awesome Gamified - See your progress and save awesome links you've already seen!
 
 ***

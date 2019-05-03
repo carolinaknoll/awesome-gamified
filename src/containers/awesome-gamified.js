@@ -3,7 +3,7 @@ import TopicsContainer from '../components/topics-container/topics-container';
 import Header from '../components/common/header';
 import Footer from '../components/common/footer';
 
-export default class HumanS extends Component {
+export default class AwesomeGamified extends Component {
   constructor(props) {
     super(props);
 
