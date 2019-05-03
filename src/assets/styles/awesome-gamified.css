@@ -22,10 +22,16 @@ a {
   color: #404040;
 }
 
+.right-container {
+  margin: 10px auto;
+}
+
 .content-container {
   height: 100%;
-  margin-bottom: 50px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .nightly-theme {

@@ -44,7 +44,7 @@ export default class SubjectsTree extends Component {
           return (
             <div key={subject} className="subjects-tree-container">
               <div className="subject-container" onClick={(e) => this.toggleTopicOpenClass(e)}>
-                <i className='chevron-icon fas fa-chevron-circle-right'></i>
+                <i className='chevron-icon tree-icon fas fa-chevron-circle-right'></i>
                 <h3 className="subject-title">{subject}</h3>
               </div>
 
@@ -94,6 +94,10 @@ export default class SubjectsTree extends Component {
 	render() {
     return (
       <div className="subjects">
+        <div className="subjects-tree-title-container">
+          <i className="tree-icon fas fa-book-open"></i>
+          <h3 className="subject-title">Choose a subject below:</h3>
+        </div>
         {this.renderSubjectTree()}
       </div>
     );

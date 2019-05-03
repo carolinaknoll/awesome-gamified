@@ -22,18 +22,22 @@ export default class AwesomeGamified extends Component {
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
         <div className="content-container">
-          <Header />
-
-          <div className="toggle-theme-container">
-            <button className="toggle-theme" onClick={this.toggleTheme}>
-              Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
-              <i className={isNightlyTheme ? 'fas fa-sun' : 'fas fa-moon'}></i>
-            </button>
+          <div className="left-container">
+            <TopicsContainer
+              isNightlyTheme={this.state.isNightlyTheme}
+            />
           </div>
 
-          <TopicsContainer
-            isNightlyTheme={this.state.isNightlyTheme}
-          />
+          <div className="right-container">
+            <Header />
+
+            <div className="toggle-theme-container">
+              <button className="toggle-theme" onClick={this.toggleTheme}>
+                Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
+                <i className={isNightlyTheme ? 'fas fa-sun' : 'fas fa-moon'}></i>
+              </button>
+            </div>
+          </div>
         </div>
 
         <Footer />

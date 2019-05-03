@@ -1,5 +1,7 @@
 .subjects {
   max-width: 450px;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .nightly-theme .subjects {
@@ -26,8 +28,23 @@
 }
 
 .subjects .chevron-icon {
-  margin-right: 5px;
   pointer-events: none;
+}
+
+.subjects .tree-icon {
+  margin-right: 5px;
+}
+
+.subjects-tree-title-container {
+  padding: 10px;
+}
+
+.subject-container {
+  padding: 0 10px;
+}
+
+.topic-list-container .topic-container:last-child {
+  margin-bottom: 10px;
 }
 
 .topic-list-container {

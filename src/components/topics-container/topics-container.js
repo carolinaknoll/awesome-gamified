@@ -13,11 +13,6 @@ export default class TopicsContainer extends Component {
     return (
       <div className="topics-container">
         <SubjectsTree/>
-
-        <Topic
-          isNightlyTheme={this.props.isNightlyTheme}
-        />
-
       </div>
     );
 	}
