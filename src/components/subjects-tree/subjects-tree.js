@@ -91,12 +91,27 @@ export default class SubjectsTree extends Component {
     })
   }
 
+  toggleSubjectTopics = () => {
+    let topicContainers = Array.from(document.getElementsByClassName('topic-list-container'));
+
+    topicContainers.map((container) => {
+      container.classList.contains('open')
+        ? container.classList.remove('open')
+        : container.classList.add('open');
+    })
+
+  }
+
 	render() {
     return (
       <div className="subjects">
         <div className="subjects-tree-title-container">
           <i className="tree-icon fas fa-book-open"></i>
           <h3 className="subject-title">Choose a subject below:</h3>
+          <p className="toggle-subject-topics" onClick={this.toggleSubjectTopics}>
+            <i className="topic-icon far fa-bookmark"></i>
+            Open/Close all subject topics
+          </p>
         </div>
         {this.renderSubjectTree()}
       </div>

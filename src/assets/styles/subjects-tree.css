@@ -39,6 +39,15 @@
   padding: 10px;
 }
 
+.subjects-tree-title-container .toggle-subject-topics {
+  cursor: pointer;
+  margin: 5px;
+}
+
+.subjects-tree-title-container .toggle-subject-topics .topic-icon {
+  margin-right: 5px;
+}
+
 .subject-container {
   padding: 0 10px;
 }
@@ -56,11 +65,11 @@
   max-height: 100%;
 }
 
-.topic-list-container.open .topic-icon {
+.topic-list-container .topic-icon {
   margin-left: 15px;
 }
 
-.topic-list-container.open .topic-name {
+.topic-list-container .topic-name {
   display: inline;
   margin: 0 10px;
 }
