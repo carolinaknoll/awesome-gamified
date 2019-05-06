@@ -49,6 +49,7 @@ export default class SubjectsTree extends Component {
               </div>
 
               <div className='topic-list-container'>
+                {this.sortTopicsAlphabetically(subjects, subject)}
                 {this.renderSubjectTopics(subjects, subject)}
               </div>
             </div>
@@ -99,7 +100,16 @@ export default class SubjectsTree extends Component {
         ? container.classList.remove('open')
         : container.classList.add('open');
     })
+  }
 
+  sortTopicsAlphabetically = (subjects, subject) => {
+    subjects[subject].sort((topicA, topicB) => {
+
+      let nameA = topicA.name.toLowerCase();
+      let nameB = topicB.name.toLowerCase();
+
+      return nameA.localeCompare(nameB);
+    })
   }
 
 	render() {
