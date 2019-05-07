@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
+import sortByNameAscending from '../../common/helpers';
 
 export default class SubjectsTree extends Component {
   constructor(props) {
@@ -49,7 +50,6 @@ export default class SubjectsTree extends Component {
               </div>
 
               <div className='topic-list-container'>
-                {this.sortTopicsAlphabetically(subjects, subject)}
                 {this.renderSubjectTopics(subjects, subject)}
               </div>
             </div>
@@ -79,6 +79,8 @@ export default class SubjectsTree extends Component {
   }
 
   renderSubjectTopics = (subjects, subject) => {
+    sortByNameAscending(subjects[subject]);
+
     return subjects[subject].map((topic) => {
       return (
         <div key={topic.url} className="topic-container">
@@ -99,16 +101,6 @@ export default class SubjectsTree extends Component {
       container.classList.contains('open')
         ? container.classList.remove('open')
         : container.classList.add('open');
-    })
-  }
-
-  sortTopicsAlphabetically = (subjects, subject) => {
-    subjects[subject].sort((topicA, topicB) => {
-
-      let nameA = topicA.name.toLowerCase();
-      let nameB = topicB.name.toLowerCase();
-
-      return nameA.localeCompare(nameB);
     })
   }
 
