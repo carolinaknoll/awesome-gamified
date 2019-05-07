@@ -1,5 +1,5 @@
 import React, {Component}  from 'react';
-import topicsEn from '../../data/topics-en';
+import topicsEn from '../../common/data/topics-en';
 
 export default class Topic extends Component {
   constructor(props) {
