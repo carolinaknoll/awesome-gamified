@@ -1,6 +1,6 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
-import sortByNameAscending from '../../common/helpers';
+import {sortByNameAscending} from '../../common/helpers';
 
 export default class SubjectsTree extends Component {
   constructor(props) {
@@ -41,7 +41,7 @@ export default class SubjectsTree extends Component {
 
     if (subjects) {
       return (
-        Object.keys(subjects).map((subject) => {
+        Object.keys(subjects).sort().map((subject) => {
           return (
             <div key={subject} className="subjects-tree-container">
               <div className="subject-container" onClick={(e) => this.toggleTopicOpenClass(e)}>
