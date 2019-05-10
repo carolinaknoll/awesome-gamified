@@ -49,7 +49,7 @@ export default class SubjectsTree extends Component {
                 <h3 className="subject-title">{subject}</h3>
               </div>
 
-              <div className='topic-list-container'>
+              <div className='subject-topic-list-container'>
                 {this.renderSubjectTopics(subjects, subject)}
               </div>
             </div>
@@ -99,7 +99,7 @@ export default class SubjectsTree extends Component {
   }
 
   toggleSubjectTopics = () => {
-    let topicContainers = Array.from(document.getElementsByClassName('topic-list-container'));
+    let topicContainers = Array.from(document.getElementsByClassName('subject-topic-list-container'));
 
     topicContainers.map((container) => {
       container.classList.contains('open')

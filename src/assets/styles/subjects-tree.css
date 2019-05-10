@@ -56,23 +56,23 @@
   margin: 0 10px;
 }
 
-.topic-list-container .topic-container:last-child {
+.subject-topic-list-container .topic-container:last-child {
   margin-bottom: 10px;
 }
 
-.topic-list-container {
+.subject-topic-list-container {
   display: none;
 }
 
-.topic-list-container.open {
+.subject-topic-list-container.open {
   display: block;
   max-height: 100%;
 }
 
-.topic-list-container .topic-icon {
+.subject-topic-list-container .topic-icon {
   margin: 0 5px;
 }
 
-.topic-list-container .topic-name {
+.subject-topic-list-container .topic-name {
   display: inline;
 }

@@ -24,6 +24,7 @@ a {
 
 .right-container {
   margin: 10px auto;
+  max-width: 70%;
 }
 
 .content-container {
