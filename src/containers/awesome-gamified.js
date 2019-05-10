@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TopicsContainer from '../components/topics-container/topics-container';
+import SubjectsTree from '../components/subjects-tree/subjects-tree';
 import Header from '../components/common/header';
 import Footer from '../components/common/footer';
 
@@ -23,9 +23,7 @@ export default class AwesomeGamified extends Component {
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
         <div className="content-container">
           <div className="left-container">
-            <TopicsContainer
-              isNightlyTheme={this.state.isNightlyTheme}
-            />
+            <SubjectsTree/>
           </div>
 
           <div className="right-container">
