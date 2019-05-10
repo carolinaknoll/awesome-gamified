@@ -20,6 +20,7 @@
   "homepage": "https://github.com/carolinaknoll/awesome-gamified#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "marked": "^0.6.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1"

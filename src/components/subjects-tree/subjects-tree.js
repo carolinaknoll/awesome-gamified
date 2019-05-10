@@ -86,12 +86,16 @@ export default class SubjectsTree extends Component {
         <div key={topic.url} className="topic-container">
           <i className="topic-icon far fa-bookmark"></i>
 
-          <a href={topic.url}>
+          <span onClick={(e) => this.handleTopicClick(e, topic)}>
             <p className="topic-name">{topic.name}</p>
-          </a>
+          </span>
         </div>
       )
     })
+  }
+
+  handleTopicClick = (e, topic) => {
+    this.props.onTopicClick(topic);
   }
 
   toggleSubjectTopics = () => {
