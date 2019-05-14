@@ -44,7 +44,7 @@ export default class TopicList extends Component {
     }
   }
 
-  componentWillReceiveProps() {
+  componentWillUpdate() {
     this.prepareRawAwesomeListRequest();
   }
 
