@@ -28,6 +28,11 @@ export default class AwesomeGamified extends Component {
 
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
+        <Navbar
+          toggleTheme={this.toggleTheme}
+          isNightlyTheme={this.state.isNightlyTheme}
+        />
+
         <div className="content-container">
           <div className="left-container">
             <SubjectsTree
@@ -36,11 +41,6 @@ export default class AwesomeGamified extends Component {
           </div>
 
           <div className="right-container">
-            <Navbar
-              toggleTheme={this.toggleTheme}
-              isNightlyTheme={this.state.isNightlyTheme}
-            />
-
             <TopicList
               clickedTopic={this.state.clickedTopic}
             />

@@ -67,9 +67,9 @@ a {
 }
 
 .toggle-theme {
-  padding: 10px;
+  padding: 5px;
   transition: 1s;
-  margin: 20px;
+  margin: 15px;
 }
 
 .toggle-theme .fas {
