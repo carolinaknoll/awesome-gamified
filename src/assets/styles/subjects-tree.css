@@ -2,10 +2,11 @@
   width: 300px;
   height: 100vh;
   overflow-y: auto;
+  transition: 0.5s;
 }
 
 .nightly-theme .subjects {
-  background: #1d2129;
+  background: #15181e;
 }
 
 .brightly-theme .subjects {
