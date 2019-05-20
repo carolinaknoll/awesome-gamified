@@ -34,6 +34,10 @@ export default class TopicList extends Component {
   }
 
   prepareRawAwesomeListRequest = () => {
+    if (!this.props.clickedTopic) {
+      return;
+    }
+
     const uppercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/README.md`;
     const lowercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/readme.md`;
 

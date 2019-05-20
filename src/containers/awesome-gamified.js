@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SubjectsTree from '../components/subjects-tree/subjects-tree';
 import TopicList from '../components/topic-list/topic-list';
-import Header from '../components/common/header';
+import Navbar from '../components/navbar/navbar';
 import Footer from '../components/common/footer';
 
 export default class AwesomeGamified extends Component {
@@ -36,14 +36,10 @@ export default class AwesomeGamified extends Component {
           </div>
 
           <div className="right-container">
-            <Header/>
-
-            <div className="toggle-theme-container">
-              <button className="toggle-theme" onClick={this.toggleTheme}>
-                Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
-                <i className={isNightlyTheme ? 'fas fa-sun' : 'fas fa-moon'}></i>
-              </button>
-            </div>
+            <Navbar
+              toggleTheme={this.toggleTheme}
+              isNightlyTheme={this.state.isNightlyTheme}
+            />
 
             <TopicList
               clickedTopic={this.state.clickedTopic}
