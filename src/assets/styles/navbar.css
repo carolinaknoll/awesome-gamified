@@ -14,11 +14,3 @@
 .navbar .toggle-theme-container {
   display: inline-block;
 }
-
-.nightly-theme .navbar {
-  background: #0a0c0f;
-}
-
-.brightly-theme .navbar {
-  background: #cfd8dc;
-}

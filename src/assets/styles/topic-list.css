@@ -3,11 +3,3 @@
   overflow-y: auto;
   transition: 0.5s;
 }
-
-.nightly-theme .topic-list-container {
-  background: #1f242d;
-}
-
-.brightly-theme .topic-list-container {
-  background: #e1e4ea;
-}

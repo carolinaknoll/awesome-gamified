@@ -5,24 +5,6 @@
   transition: 0.5s;
 }
 
-.nightly-theme .subjects {
-  background: #15181e;
-}
-
-.brightly-theme .subjects {
-  background: #FFF;
-}
-
-.nightly-theme .subject-container:hover,
-.nightly-theme .topic-container:hover {
-  background: #353c4b;
-}
-
-.brightly-theme .subject-container:hover,
-.brightly-theme .topic-container:hover {
-  background: #e1e4ea;
-}
-
 .subjects .subject-title {
   display: inline;
   pointer-events: none;
