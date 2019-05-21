@@ -12,7 +12,7 @@
 .brightly-theme {
   display: flex;
   flex-direction: column;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .nightly-theme a {
@@ -69,18 +69,18 @@
   background: #e1e4ea;
 }
 
-.brightly-theme .footer-top {
-  background: #eceff1;
-}
-
-.brightly-theme .footer-bottom {
+.brightly-theme .footer {
   background: #cfd8dc;
 }
 
-.nightly-theme .footer-top {
-  background: #1d2129;
+.nightly-theme .footer {
+  background: #0a0c0f;
 }
 
-.nightly-theme .footer-bottom {
-  background: #0a0c0f;
+.brightly-theme .footer .social-list .social-icon {
+  color: #000;
+}
+
+.nightly-theme .footer .social-list .social-icon {
+  color: #FFF;
 }
