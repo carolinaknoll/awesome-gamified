@@ -84,3 +84,11 @@
 .nightly-theme .footer .social-list .social-icon {
   color: #FFF;
 }
+
+.nightly-theme .subject-topic-list-container .selected {
+  background: #353c4b;
+}
+
+.brightly-theme .subject-topic-list-container .selected {
+  background: #e1e4ea;
+}

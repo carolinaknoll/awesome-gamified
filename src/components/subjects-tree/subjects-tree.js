@@ -83,18 +83,25 @@ export default class SubjectsTree extends Component {
 
     return subjects[subject].map((topic) => {
       return (
-        <div key={topic.url} className="topic-container">
+        <div key={topic.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, topic)}>
           <i className="topic-icon far fa-bookmark"></i>
-
-          <span onClick={(e) => this.handleTopicClick(e, topic)}>
-            <p className="topic-name">{topic.name}</p>
-          </span>
+          <p className="topic-name">{topic.name}</p>
         </div>
       )
     })
   }
 
   handleTopicClick = (e, topic) => {
+    let topicNameContainers = Array.from(document.getElementsByClassName('topic-container'));
+
+    topicNameContainers.map((name) => {
+      if (name.classList.contains('selected')) {
+        name.classList.remove('selected');
+      }
+    })
+
+    e.target.classList.add('selected');
+
     this.props.onTopicClick(topic);
   }
 

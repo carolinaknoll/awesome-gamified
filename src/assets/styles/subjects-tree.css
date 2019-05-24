@@ -54,8 +54,10 @@
 
 .subject-topic-list-container .topic-icon {
   margin: 0 5px;
+  pointer-events: none;
 }
 
 .subject-topic-list-container .topic-name {
   display: inline;
+  pointer-events: none;
 }
