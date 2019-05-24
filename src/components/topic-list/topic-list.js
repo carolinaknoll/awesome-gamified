@@ -22,12 +22,12 @@ export default class TopicList extends Component {
 
       if (!this.state.topicMarkdown) {
         this.setState({
-          errorMessage: 'There was an error. Unable to load the Awesome list.'
+          errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}.`
         });
       }
     }).catch((error) => {
       this.setState({
-        errorMessage: `There was an error. Unable to load the Awesome list: ${error}.`,
+        errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}. ${error}.`,
         topicMarkdown: ''
       });
     });
@@ -41,15 +41,17 @@ export default class TopicList extends Component {
     const uppercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/README.md`;
     const lowercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/readme.md`;
 
-    this.getRawAwesomeListContent(uppercasedReadmeUrl);
-
-    if (this.state.errorMessage.includes('404')) {
-      this.getRawAwesomeListContent(lowercasedReadmeUrl);
-    }
+    this.getRawAwesomeListContent(uppercasedReadmeUrl, function() {
+      if (this.state.errorMessage.includes('404')) {
+        this.getRawAwesomeListContent(lowercasedReadmeUrl);
+      }
+    });
   }
 
-  componentWillUpdate() {
-    this.prepareRawAwesomeListRequest();
+  componentDidUpdate(prevProps) {
+    if (this.props.clickedTopic !== prevProps.clickedTopic) {
+      this.prepareRawAwesomeListRequest(prevProps);
+    }
   }
 
   setupCustomMarked() {
