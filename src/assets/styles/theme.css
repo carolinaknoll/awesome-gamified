@@ -48,7 +48,7 @@
 }
 
 .brightly-theme .subjects {
-  background: #FFF;
+  background: #e1e4ea;
 }
 
 .nightly-theme .subject-container:hover,
@@ -58,7 +58,7 @@
 
 .brightly-theme .subject-container:hover,
 .brightly-theme .topic-container:hover {
-  background: #e1e4ea;
+  background: #FFF;
 }
 
 .nightly-theme .topic-list-container {
@@ -66,7 +66,7 @@
 }
 
 .brightly-theme .topic-list-container {
-  background: #e1e4ea;
+  background: #FFF;
 }
 
 .brightly-theme .footer {
@@ -90,5 +90,5 @@
 }
 
 .brightly-theme .subject-topic-list-container .selected {
-  background: #e1e4ea;
+  background: #FFF;
 }
