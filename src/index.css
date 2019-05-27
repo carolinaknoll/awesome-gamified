@@ -1,7 +1,8 @@
 @import url("../src/assets/styles/theme.css");
-@import url("../src/assets/styles/awesome-gamified.css");
+@import url("../src/assets/styles/navbar.css");
 @import url("../src/assets/styles/header.css");
 @import url("../src/assets/styles/footer.css");
+@import url("../src/assets/styles/awesome-gamified.css");
 @import url("../src/assets/styles/subjects-tree.css");
 @import url("../src/assets/styles/topic-list.css");
-@import url("../src/assets/styles/navbar.css");
+@import url("../src/assets/styles/saved-items.css");

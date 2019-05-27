@@ -1,0 +1,18 @@
+.saved-items-container {
+  position: relative;
+}
+
+.saved-items-panel {
+  display: none;
+  transition: 0.5s;
+}
+
+.saved-items-panel.open {
+  display: block;
+  position: absolute;
+  margin: 10px;
+  min-width: 600px;
+  min-height: 600px;
+  right: -115%;
+  transition: 0.5s;
+}

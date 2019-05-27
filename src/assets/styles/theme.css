@@ -92,3 +92,13 @@
 .brightly-theme .subject-topic-list-container .selected {
   background: #FFF;
 }
+
+.nightly-theme .saved-items-panel.open {
+  background: #15181e;
+  box-shadow: -1px 3px 20px -1px rgba(0, 0, 0, 0.4);
+}
+
+.brightly-theme .saved-items-panel.open {
+  background: #e1e4ea;
+  box-shadow: -1px 3px 20px -1px rgba(9, 9, 9, 0.4);
+}
