@@ -1,5 +1,6 @@
 .topic-list-container {
   height: 100vh;
   overflow-y: auto;
+  padding: 0 10px;
   transition: 0.5s;
 }

@@ -31,13 +31,13 @@
   background: #cfd8dc;
 }
 
-.nightly-theme .toggle-theme {
+.nightly-theme .button-default {
   background: #1d2129;
   border: 1px solid #FFF;
   color: #FFF;
 }
 
-.brightly-theme .toggle-theme {
+.brightly-theme .button-default {
   background: #eceff1;
   border: 1px solid #000;
   color: #000;

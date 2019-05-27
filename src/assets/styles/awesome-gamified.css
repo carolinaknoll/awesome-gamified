@@ -29,11 +29,12 @@ a {
   text-align: center;
 }
 
-.toggle-theme {
+.button-default {
   padding: 5px;
   margin: 15px;
 }
 
-.toggle-theme .fas {
-  margin-left: 10px;
+.button-default .far,
+.button-default .fas {
+  margin-right: 5px;
 }

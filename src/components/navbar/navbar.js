@@ -1,5 +1,5 @@
 import React, {Component}  from 'react';
-
+import SavedItems from '../saved-items/saved-items';
 export default class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -20,11 +20,13 @@ export default class Navbar extends Component {
         <h3 className="title">Awesome Gamified</h3>
 
         <div className="toggle-theme-container">
-            <button className="toggle-theme" onClick={this.handleToggleThemeClick}>
-              Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
-              <i className={isNightlyTheme ? 'fas fa-sun' : 'fas fa-moon'}></i>
-            </button>
-          </div>
+          <button className="button-default" onClick={this.handleToggleThemeClick}>
+            <i className={isNightlyTheme ? 'fas fa-sun' : 'fas fa-moon'}></i>
+            Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
+          </button>
+        </div>
+
+        <SavedItems/>
       </div>
     );
 	}
