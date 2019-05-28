@@ -78,6 +78,20 @@ export default class SubjectsTree extends Component {
     }
   }
 
+  toggleChevronClassWithoutEvent = () => {
+    let chevronIcon = Array.from(document.getElementsByClassName('chevron-icon'));
+
+    chevronIcon.map((icon) => {
+      if (icon.classList.contains('fa-chevron-circle-right')) {
+        icon.classList.remove('fa-chevron-circle-right');
+        icon.classList.add('fa-chevron-circle-down');
+      } else {
+        icon.classList.remove('fa-chevron-circle-down');
+        icon.classList.add('fa-chevron-circle-right');
+      }
+    })
+  }
+
   renderSubjectTopics = (subjects, subject) => {
     sortByNameAscending(subjects[subject]);
 
@@ -109,10 +123,10 @@ export default class SubjectsTree extends Component {
     let topicContainers = Array.from(document.getElementsByClassName('subject-topic-list-container'));
 
     topicContainers.map((container) => {
-      container.classList.contains('open')
-        ? container.classList.remove('open')
-        : container.classList.add('open');
+      container.classList.toggle('open');
     })
+
+    this.toggleChevronClassWithoutEvent();
   }
 
 	render() {
