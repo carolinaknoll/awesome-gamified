@@ -70,8 +70,8 @@ export default class TopicList extends Component {
       let liTags = Array.from(topicListContainer.getElementsByTagName('li'));
 
       liTags.map((tag) => {
-        tag.insertAdjacentHTML("beforeBegin",
-        "<button class='button-default'>[Seen]</button> <button class='button-default'>[<i class='fas fa-star'></i>]</button>");
+        tag.insertAdjacentHTML("afterBegin",
+        "<span><button class='button-default'>[Seen]</button> <button class='button-default'>[<i class='fas fa-star'></i>]</button></span>");
       });
     }
   }
