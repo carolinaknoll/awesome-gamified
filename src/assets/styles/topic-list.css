@@ -4,3 +4,7 @@
   padding: 0 10px;
   transition: 0.5s;
 }
+
+.topic-list-container ul li span {
+  margin-right: 5px;
+}

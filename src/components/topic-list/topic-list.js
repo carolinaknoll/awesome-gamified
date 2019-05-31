@@ -64,6 +64,18 @@ export default class TopicList extends Component {
     return customMarked;
   }
 
+  customizeMarkdown = () => {
+    if (this.state.topicMarkdown) {
+      let topicListContainer = document.getElementsByClassName('topic-list-container')[0];
+      let liTags = Array.from(topicListContainer.getElementsByTagName('li'));
+
+      liTags.map((tag) => {
+        tag.insertAdjacentHTML("afterBegin",
+        "<span><button class='button-default'>[Seen]</button> <button class='button-default'>[<i class='fas fa-star'></i>]</button></span>");
+      });
+    }
+  }
+
   renderTopicList = () => {
     let customMarked = this.setupCustomMarked();
 
@@ -78,6 +90,7 @@ export default class TopicList extends Component {
     return (
       <div className="topic-list-container">
         {this.renderTopicList()}
+        {this.customizeMarkdown()}
       </div>
     );
 	}

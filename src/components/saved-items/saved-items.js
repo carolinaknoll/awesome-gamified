@@ -11,9 +11,7 @@ export default class SavedItems extends Component {
   handleSavedItemsButtonClick = () => {
     let savedItemsPanel = document.querySelector('.saved-items-panel');
 
-    savedItemsPanel.classList.contains('open')
-      ? savedItemsPanel.classList.remove('open')
-      : savedItemsPanel.classList.add('open');
+    savedItemsPanel.classList.toggle('open');
   }
 
 	render() {

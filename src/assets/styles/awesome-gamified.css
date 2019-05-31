@@ -29,12 +29,12 @@ a {
   text-align: center;
 }
 
-.button-default {
+.navbar .button-default {
   padding: 5px;
   margin: 15px;
 }
 
-.button-default .far,
-.button-default .fas {
+.navbar .button-default .far,
+.navbar .button-default .fas {
   margin-right: 5px;
 }
