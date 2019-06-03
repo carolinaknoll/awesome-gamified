@@ -65,7 +65,7 @@ export default class TopicList extends Component {
   }
 
   addButtonsToListElements = (parsedMarkdown) => {
-    let startingHtmlString = `<li><span><button class="button-default">[Seen]</button><button class="button-default">[<i class="fas fa-star"></i>]</button>`;
+    let startingHtmlString = `<li><span><button class="seen button-default">[Seen]</button><button class="button-default">[<i class="bookmark fas fa-star"></i>]</button>`;
     let endingHtmlString = `</span></li>`;
 
     parsedMarkdown = parsedMarkdown
@@ -73,6 +73,24 @@ export default class TopicList extends Component {
       .replace(/<\/li>/g, endingHtmlString);
 
     return parsedMarkdown;
+  }
+
+  handleTopicHtmlClick = (e) => {
+    let hasSeenClass = e.target.classList.contains('seen');
+    let hasBookmarkClass = e.target.classList.contains('bookmark');
+
+    if (!hasSeenClass && !hasBookmarkClass) {
+      return;
+    }
+
+    //wip
+    if (hasSeenClass) {
+      localStorage.setItem('SavedSeen', e.target.parentElement.lastChild);
+    }
+
+    if (hasBookmarkClass) {
+      localStorage.setItem('SavedBookmarks', e.target.parentElement.lastChild);
+    }
   }
 
   renderTopicList = () => {
@@ -83,7 +101,7 @@ export default class TopicList extends Component {
       parsedMarkdown = this.addButtonsToListElements(parsedMarkdown);
 
       return (
-        <div dangerouslySetInnerHTML={{__html: parsedMarkdown}}></div>
+        <div dangerouslySetInnerHTML={{__html: parsedMarkdown}} onClick={this.handleTopicHtmlClick}></div>
       )
     }
   }

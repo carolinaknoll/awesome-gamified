@@ -5,6 +5,6 @@
   transition: 0.5s;
 }
 
-.topic-list-container ul li span {
+.topic-list-container ul li .button-default {
   margin-right: 5px;
 }

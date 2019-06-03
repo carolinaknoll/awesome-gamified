@@ -23,7 +23,11 @@ export default class SavedItems extends Component {
         </button>
 
         <div className="saved-items-panel">
-          <h2>Saved items</h2>
+          <h2>Saved seen items</h2>
+          <p>{localStorage.getItem('SavedSeem')}</p>
+
+          <h2>Saved bookmarked items</h2>
+          <p>{localStorage.getItem('SavedBookmarks')}</p>
         </div>
       </div>
     );
