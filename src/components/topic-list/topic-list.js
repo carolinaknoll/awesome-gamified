@@ -64,24 +64,26 @@ export default class TopicList extends Component {
     return customMarked;
   }
 
-  customizeMarkdown = () => {
-    if (this.state.topicMarkdown) {
-      let topicListContainer = document.getElementsByClassName('topic-list-container')[0];
-      let liTags = Array.from(topicListContainer.getElementsByTagName('li'));
+  addButtonsToListElements = (parsedMarkdown) => {
+    let startingHtmlString = `<li><span><button class="button-default">[Seen]</button><button class="button-default">[<i class="fas fa-star"></i>]</button>`;
+    let endingHtmlString = `</span></li>`;
 
-      liTags.map((tag) => {
-        tag.insertAdjacentHTML("afterBegin",
-        "<span><button class='button-default'>[Seen]</button> <button class='button-default'>[<i class='fas fa-star'></i>]</button></span>");
-      });
-    }
+    parsedMarkdown = parsedMarkdown
+      .replace(/<li>/g, startingHtmlString)
+      .replace(/<\/li>/g, endingHtmlString);
+
+    return parsedMarkdown;
   }
 
   renderTopicList = () => {
     let customMarked = this.setupCustomMarked();
 
     if (this.state.topicMarkdown) {
+      let parsedMarkdown = customMarked(this.state.topicMarkdown);
+      parsedMarkdown = this.addButtonsToListElements(parsedMarkdown);
+
       return (
-        <div dangerouslySetInnerHTML={{__html: customMarked(this.state.topicMarkdown)}}></div>
+        <div dangerouslySetInnerHTML={{__html: parsedMarkdown}}></div>
       )
     }
   }
@@ -90,7 +92,6 @@ export default class TopicList extends Component {
     return (
       <div className="topic-list-container">
         {this.renderTopicList()}
-        {this.customizeMarkdown()}
       </div>
     );
 	}
