@@ -85,12 +85,30 @@ export default class TopicList extends Component {
 
     //wip
     if (hasSeenClass) {
-      localStorage.setItem('SavedSeen', e.target.parentElement.lastChild);
+      let itemName = e.target.parentElement.getElementsByTagName('a')[0].text;
+      let itemUrl = e.target.parentElement.getElementsByTagName('a')[0].href;
+
+      this.saveNewItem('SavedSeen', itemName, itemUrl);
     }
 
     if (hasBookmarkClass) {
-      localStorage.setItem('SavedBookmarks', e.target.parentElement.lastChild);
+      let itemName = e.target.parentElement.parentElement.getElementsByTagName('a')[0].text;
+      let itemUrl = e.target.parentElement.parentElement.getElementsByTagName('a')[0].href;
+
+      this.saveNewItem('SavedBookmarks', itemName, itemUrl);
     }
+  }
+
+  saveNewItem = (location, itemName, itemUrl) => {
+    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists'));
+
+    let itemToSave = {itemName: itemName, itemUrl: itemUrl};
+
+    savedItems = [{
+      [location]: [{itemToSave}],
+    }];
+
+    localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
   }
 
   renderTopicList = () => {
