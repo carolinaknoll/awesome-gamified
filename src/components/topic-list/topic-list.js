@@ -99,14 +99,19 @@ export default class TopicList extends Component {
     }
   }
 
+  //wip
   saveNewItem = (location, itemName, itemUrl) => {
-    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists'));
+    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [];
 
-    let itemToSave = {itemName: itemName, itemUrl: itemUrl};
+    let itemToSave = {itemLocation: location, itemName: itemName, itemUrl: itemUrl};
 
-    savedItems = [{
-      [location]: [{itemToSave}],
-    }];
+    savedItems = savedItems.map((obj) => {
+      if (Object.keys(obj).includes(itemToSave.itemLocation)) {
+        obj[location].itemToSave.push([itemToSave]);
+      } else {
+        savedItems.push({[location]: [itemToSave]});
+      }
+    });
 
     localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
   }
