@@ -104,14 +104,28 @@ export default class TopicList extends Component {
     let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [];
 
     let itemToSave = {itemLocation: location, itemName: itemName, itemUrl: itemUrl};
+    console.log('itemToSave', itemToSave);
 
-    savedItems = savedItems.map((obj) => {
-      if (Object.keys(obj).includes(itemToSave.itemLocation)) {
-        obj[location].itemToSave.push([itemToSave]);
-      } else {
-        savedItems.push({[location]: [itemToSave]});
-      }
-    });
+
+    if (savedItems && savedItems.length) {
+      savedItems.map((obj) => {
+        console.log('obj', obj);
+
+        let savedItemsHasItemToSaveLocation = Object.keys(obj).includes(itemToSave.itemLocation);
+
+        if (savedItemsHasItemToSaveLocation) {
+          console.log('entering map if');
+          obj[location].push(itemToSave);
+
+        } else {
+          console.log('entering map else');
+          savedItems.push({[location]: [itemToSave]});
+        }
+      });
+
+    } else {
+      savedItems.push({[location]: [itemToSave]});
+    }
 
     localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
   }
