@@ -1,6 +1,6 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
-import {sortByNameAscending} from '../../common/helpers';
+import {sortByNameAscending, toggleDifferentClasses} from '../../common/helpers';
 
 export default class SubjectsTree extends Component {
   constructor(props) {
@@ -68,28 +68,16 @@ export default class SubjectsTree extends Component {
     if (e) {
       let chevronIcon = e.target.querySelector('.chevron-icon');
 
-      if (chevronIcon.classList.contains('fa-chevron-circle-right')) {
-        chevronIcon.classList.remove('fa-chevron-circle-right');
-        chevronIcon.classList.add('fa-chevron-circle-down');
-      } else {
-        chevronIcon.classList.remove('fa-chevron-circle-down');
-        chevronIcon.classList.add('fa-chevron-circle-right');
-      }
+      toggleDifferentClasses(chevronIcon, 'fa-chevron-circle-right', 'fa-chevron-circle-down');
     }
   }
 
   toggleChevronClassWithoutEvent = () => {
-    let chevronIcon = Array.from(document.getElementsByClassName('chevron-icon'));
+    let chevronIconElements = Array.from(document.getElementsByClassName('chevron-icon'));
 
-    chevronIcon.map((icon) => {
-      if (icon.classList.contains('fa-chevron-circle-right')) {
-        icon.classList.remove('fa-chevron-circle-right');
-        icon.classList.add('fa-chevron-circle-down');
-      } else {
-        icon.classList.remove('fa-chevron-circle-down');
-        icon.classList.add('fa-chevron-circle-right');
-      }
-    })
+    chevronIconElements.map((element) => {
+      toggleDifferentClasses(element, 'fa-chevron-circle-right', 'fa-chevron-circle-down');
+    });
   }
 
   renderSubjectTopics = (subjects, subject) => {
