@@ -1,6 +1,7 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
 import marked from 'marked';
+import {SAVED_ITEM_TYPES} from '../../common/variables';
 
 export default class TopicList extends Component {
   constructor(props) {
@@ -83,26 +84,23 @@ export default class TopicList extends Component {
       return;
     }
 
-    //wip
     if (hasSeenClass) {
       let itemName = e.target.parentElement.getElementsByTagName('a')[0].text;
       let itemUrl = e.target.parentElement.getElementsByTagName('a')[0].href;
 
-      this.saveNewItem('SavedSeen', itemName, itemUrl);
+      this.saveNewItem('savedSeen', itemName, itemUrl);
     }
 
     if (hasBookmarkClass) {
       let itemName = e.target.parentElement.parentElement.getElementsByTagName('a')[0].text;
       let itemUrl = e.target.parentElement.parentElement.getElementsByTagName('a')[0].href;
 
-      this.saveNewItem('SavedBookmarks', itemName, itemUrl);
+      this.saveNewItem('savedBookmarks', itemName, itemUrl);
     }
   }
 
-  //wip
   saveNewItem = (location, itemName, itemUrl) => {
-    let savedItemTypes = {SavedSeen: [], SavedBookmarks: []};
-    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [savedItemTypes];
+    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [SAVED_ITEM_TYPES];
 
     let itemToSave = {itemLocation: location, itemName: itemName, itemUrl: itemUrl};
     let locationToSave = itemToSave.itemLocation;
