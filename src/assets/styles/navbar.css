@@ -12,6 +12,6 @@
 
 .navbar .title,
 .navbar .toggle-theme-container,
-.navbar .saved-items-container {
+.navbar .saved-items-panel-container {
   display: inline-block;
 }

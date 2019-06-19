@@ -1,4 +1,4 @@
-.saved-items-container {
+.saved-items-panel-container {
   position: relative;
 }
 
@@ -17,6 +17,18 @@
   transition: 0.5s;
 }
 
-.saved-items-panel .saved-item {
-  display: block;
+.saved-items-panel .saved-items-container {
+  margin: auto;
+  text-align: left;
+  max-width: 400px;
+}
+
+.saved-items-panel .saved-item-container .button-default,
+.saved-items-panel .saved-item-container .saved-item {
+  display: inline;
+}
+
+.saved-items-panel .saved-item-container .button-default {
+  padding: 2px 5px;
+  margin: 2px 5px;
 }
