@@ -16,3 +16,7 @@
   right: -115%;
   transition: 0.5s;
 }
+
+.saved-items-panel .saved-item {
+  display: block;
+}

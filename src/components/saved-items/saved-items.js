@@ -14,6 +14,28 @@ export default class SavedItems extends Component {
     savedItemsPanel.classList.toggle('open');
   }
 
+  getSavedSeen = () => {
+    return this.getSavedItems('savedSeen');
+  }
+
+  getSavedBookmarks = () => {
+    return this.getSavedItems('savedBookmarks');
+  }
+
+  getSavedItems = (savedItemName) => {
+    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists'));
+
+    if (savedItems === null) {
+      return (<p>You don't currently have saved items in this category.</p>);
+    }
+
+    if (savedItems.length > 0) {
+      return savedItems[0][savedItemName].map((item, index) => {
+        return (<a key={index} className="saved-item" href={item.itemUrl}>{item.itemName}</a>);
+      });
+    }
+  }
+
 	render() {
     return (
       <div className="saved-items-container">
@@ -24,10 +46,10 @@ export default class SavedItems extends Component {
 
         <div className="saved-items-panel">
           <h2>Saved seen items</h2>
-          <p>{localStorage.getItem('SavedSeem')}</p>
+          {this.getSavedSeen()}
 
           <h2>Saved bookmarked items</h2>
-          <p>{localStorage.getItem('SavedBookmarks')}</p>
+          {this.getSavedBookmarks()}
         </div>
       </div>
     );
