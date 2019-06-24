@@ -33,7 +33,12 @@ export default class SavedItems extends Component {
       return savedItems[0][savedItemName].map((item, index) => {
         return (
           <div key={index} className="saved-item-container">
-            <button className="button-default" onClick={this.handleSavedItemsRemoveItemButtonClick}>[Remove]</button>
+            <button
+              className="button-default"
+              onClick={() => this.handleSavedItemsRemoveItemButtonClick(savedItems, savedItemName, index)}
+            >
+              [Remove]
+            </button>
             <a className="saved-item" href={item.itemUrl}>{item.itemName}</a>
           </div>
         );
@@ -41,7 +46,15 @@ export default class SavedItems extends Component {
     }
   }
 
-  handleSavedItemsRemoveItemButtonClick = () => {}
+  handleSavedItemsRemoveItemButtonClick = (savedItems, savedItemName, savedItemIndex) => {
+    let savedItemsArrayWithoutRemovedElement = savedItems[0][savedItemName].filter((item, index) => {
+      return savedItemIndex !== index;
+    });
+
+    savedItems[0][savedItemName] = savedItemsArrayWithoutRemovedElement;
+
+    localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
+  }
 
 	render() {
     return (
