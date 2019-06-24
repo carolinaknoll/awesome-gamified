@@ -54,6 +54,8 @@ export default class SavedItems extends Component {
     savedItems[0][savedItemName] = savedItemsArrayWithoutRemovedElement;
 
     localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
+
+    this.props.onSavedItemsChange(savedItems);
   }
 
 	render() {

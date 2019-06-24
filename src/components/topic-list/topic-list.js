@@ -108,6 +108,8 @@ export default class TopicList extends Component {
     savedItems[0][locationToSave].push(itemToSave);
 
     localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
+
+    this.props.onSavedItemsChange(savedItems);
   }
 
   renderTopicList = () => {

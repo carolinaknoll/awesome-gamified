@@ -19,6 +19,12 @@ export default class AwesomeGamified extends Component {
     })
   }
 
+  onSavedItemsChange = (savedItems) => {
+    this.setState({
+      savedItems: savedItems,
+    })
+  }
+
   toggleTheme = (event) => {
     this.setState({isNightlyTheme: !this.state.isNightlyTheme});
   }
@@ -31,6 +37,8 @@ export default class AwesomeGamified extends Component {
         <Navbar
           toggleTheme={this.toggleTheme}
           isNightlyTheme={this.state.isNightlyTheme}
+          onSavedItemsChange={this.onSavedItemsChange}
+          savedItems={this.state.savedItems}
         />
 
         <div className="content-container">
@@ -43,6 +51,8 @@ export default class AwesomeGamified extends Component {
           <div className="right-container">
             <TopicList
               clickedTopic={this.state.clickedTopic}
+              onSavedItemsChange={this.onSavedItemsChange}
+              savedItems={this.state.savedItems}
             />
           </div>
         </div>

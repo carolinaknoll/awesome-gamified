@@ -26,7 +26,10 @@ export default class Navbar extends Component {
           </button>
         </div>
 
-        <SavedItems/>
+        <SavedItems
+          onSavedItemsChange={this.props.onSavedItemsChange}
+          savedItems={this.props.savedItems}
+        />
       </div>
     );
 	}
