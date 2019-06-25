@@ -58,10 +58,29 @@ export default class SavedItems extends Component {
     this.props.onSavedItemsChange(savedItems);
   }
 
+  componentDidMount = () => {
+    document.addEventListener('click', this.handleClickOutsidePanel)
+  }
+
+  handleClickOutsidePanel = (e) => {
+    let isSavedItemsPanelOpen = document.getElementsByClassName('saved-items-panel')[0].classList.contains('open');
+    let isClickOutsideSavedItemsPanel = !e.target.classList.contains('saved-items-panel');
+    let isClickOutsideSavedItemsPanelButton = !e.target.classList.contains('saved-items-button');
+    let isClickOutsidePanelItemsContainer = !e.target.parentNode.classList.contains('saved-items-container');
+    let isClickOutsidePanelItemContainer = !e.target.parentNode.classList.contains('saved-item-container');
+
+    if (isSavedItemsPanelOpen && isClickOutsideSavedItemsPanel) {
+      if (isClickOutsideSavedItemsPanelButton && isClickOutsidePanelElements && isClickOutsidePanelItemContainer) {
+        let savedItemsPanel = document.getElementsByClassName('saved-items-panel')[0];
+        savedItemsPanel.classList.remove('open');
+      }
+    }
+  }
+
 	render() {
     return (
       <div className="saved-items-panel-container">
-        <button className="button-default" onClick={this.handleSavedItemsButtonClick}>
+        <button className="button-default saved-items-button" onClick={this.handleSavedItemsButtonClick}>
           <i className="far fa-save"></i>
           View saved items
         </button>
