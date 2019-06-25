@@ -32,3 +32,7 @@
   padding: 2px 5px;
   margin: 2px 5px;
 }
+
+.saved-items-panel .saved-items-type-title {
+  pointer-events: none;
+}

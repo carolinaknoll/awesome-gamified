@@ -63,15 +63,15 @@ export default class SavedItems extends Component {
   }
 
   handleClickOutsidePanel = (e) => {
-    let isSavedItemsPanelOpen = document.getElementsByClassName('saved-items-panel')[0].classList.contains('open');
+    let isSavedItemsPanelOpen = document.querySelector('.saved-items-panel').classList.contains('open');
     let isClickOutsideSavedItemsPanel = !e.target.classList.contains('saved-items-panel');
     let isClickOutsideSavedItemsPanelButton = !e.target.classList.contains('saved-items-button');
     let isClickOutsidePanelItemsContainer = !e.target.parentNode.classList.contains('saved-items-container');
     let isClickOutsidePanelItemContainer = !e.target.parentNode.classList.contains('saved-item-container');
 
     if (isSavedItemsPanelOpen && isClickOutsideSavedItemsPanel) {
-      if (isClickOutsideSavedItemsPanelButton && isClickOutsidePanelElements && isClickOutsidePanelItemContainer) {
-        let savedItemsPanel = document.getElementsByClassName('saved-items-panel')[0];
+      if (isClickOutsideSavedItemsPanelButton && isClickOutsidePanelItemsContainer && isClickOutsidePanelItemContainer) {
+        let savedItemsPanel = document.querySelector('.saved-items-panel');
         savedItemsPanel.classList.remove('open');
       }
     }
@@ -86,16 +86,15 @@ export default class SavedItems extends Component {
         </button>
 
         <div className="saved-items-panel">
-          <h2>Saved seen items</h2>
-          <div className="saved-items-container">
-            {this.getSavedSeen()}
-          </div>
-
-          <h2>Saved bookmarked items</h2>
+          <h2 className="saved-items-type-title">Saved bookmarked items</h2>
           <div className="saved-items-container">
             {this.getSavedBookmarks()}
           </div>
 
+          <h2 className="saved-items-type-title">Saved seen items</h2>
+          <div className="saved-items-container">
+            {this.getSavedSeen()}
+          </div>
         </div>
       </div>
     );
