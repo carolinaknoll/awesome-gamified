@@ -13,9 +13,9 @@
 }
 
 .heading-divider:before {
-  background-image: linear-gradient(to right, transparent, #2979ff, #2979ff);
+  background-image: linear-gradient(to right, transparent, #6a7895, #6a7895);
 }
 
 .heading-divider:after {
-  background-image: linear-gradient(to right, #2979ff, #2979ff, transparent);
+  background-image: linear-gradient(to right, #6a7895, #6a7895, transparent);
 }
