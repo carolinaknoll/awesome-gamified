@@ -86,12 +86,22 @@ export default class SavedItems extends Component {
         </button>
 
         <div className="saved-items-panel">
-          <h2 className="saved-items-type-title">Saved bookmarked items</h2>
+          <h2 className="saved-items-type-title heading-divider">
+            <i class="icon bookmark fas fa-archive"></i> Saved items
+          </h2>
+
+          <h2 className="saved-items-type-title heading-divider">
+            <i class="icon bookmark fas fa-star"></i> Bookmarked
+          </h2>
+
           <div className="saved-items-container">
             {this.getSavedBookmarks()}
           </div>
 
-          <h2 className="saved-items-type-title">Saved seen items</h2>
+          <h2 className="saved-items-type-title heading-divider">
+            <i class="icon bookmark fas fa-eye"></i> Seen
+          </h2>
+
           <div className="saved-items-container">
             {this.getSavedSeen()}
           </div>

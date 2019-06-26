@@ -12,9 +12,10 @@
   position: absolute;
   margin: 10px;
   min-width: 600px;
-  min-height: 600px;
+  height: 650px;
   right: -115%;
   transition: 0.5s;
+  overflow-y: scroll;
 }
 
 .saved-items-panel .saved-items-container {
@@ -35,4 +36,13 @@
 
 .saved-items-panel .saved-items-type-title {
   pointer-events: none;
+}
+
+.saved-items-panel .saved-items-type-title .icon {
+  margin-right: 5px;
+  color: #2979ff;
+}
+
+.saved-items-panel .saved-items-container:last-of-type {
+  padding-bottom: 20px;
 }

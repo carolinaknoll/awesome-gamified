@@ -1,0 +1,21 @@
+/* Thanks, https://codepen.io/benknight/pen/zxxeay */
+.heading-divider {
+  display: flex;
+  align-items: center;
+}
+
+.heading-divider:before,
+.heading-divider:after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  margin: 5px 0.5em 0;
+}
+
+.heading-divider:before {
+  background-image: linear-gradient(to right, transparent, #2979ff, #2979ff);
+}
+
+.heading-divider:after {
+  background-image: linear-gradient(to right, #2979ff, #2979ff, transparent);
+}
