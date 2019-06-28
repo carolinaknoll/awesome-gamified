@@ -87,11 +87,11 @@ export default class SavedItems extends Component {
 
         <div className="saved-items-panel">
           <h2 className="saved-items-type-title heading-divider">
-            <i class="icon bookmark fas fa-archive"></i> Saved items
+            <i className="icon bookmark fas fa-archive"></i> Saved items
           </h2>
 
           <h2 className="saved-items-type-title heading-divider">
-            <i class="icon bookmark fas fa-star"></i> Bookmarked
+            <i className="icon bookmark fas fa-star"></i> Bookmarked
           </h2>
 
           <div className="saved-items-container">
@@ -99,7 +99,7 @@ export default class SavedItems extends Component {
           </div>
 
           <h2 className="saved-items-type-title heading-divider">
-            <i class="icon bookmark fas fa-eye"></i> Seen
+            <i className="icon bookmark fas fa-eye"></i> Seen
           </h2>
 
           <div className="saved-items-container">
