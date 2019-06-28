@@ -39,6 +39,7 @@ export default class SavedItems extends Component {
             >
               [Remove]
             </button>
+            <p className="saved-item">{item.itemSubjectName} > {item.itemTopicName} > </p>
             <a className="saved-item" href={item.itemUrl}>{item.itemName}</a>
           </div>
         );

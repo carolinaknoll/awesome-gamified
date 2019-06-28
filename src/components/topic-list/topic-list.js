@@ -84,25 +84,37 @@ export default class TopicList extends Component {
       return;
     }
 
+    let itemSubjectInfoContainer = document.querySelector('.topic-container.selected');
+
+    let itemSubjectName = itemSubjectInfoContainer.parentElement.parentElement.getElementsByClassName('subject-title')[0].innerHTML;
+    let itemTopicName = itemSubjectInfoContainer.getElementsByClassName('topic-name')[0].innerHTML;
+
     if (hasSeenClass) {
       let itemName = e.target.parentElement.getElementsByTagName('a')[0].text;
       let itemUrl = e.target.parentElement.getElementsByTagName('a')[0].href;
 
-      this.saveNewItem('savedSeen', itemName, itemUrl);
+      this.saveNewItem('savedSeen', itemSubjectName, itemTopicName, itemName, itemUrl);
     }
 
     if (hasBookmarkClass) {
       let itemName = e.target.parentElement.parentElement.getElementsByTagName('a')[0].text;
       let itemUrl = e.target.parentElement.parentElement.getElementsByTagName('a')[0].href;
 
-      this.saveNewItem('savedBookmarks', itemName, itemUrl);
+      this.saveNewItem('savedBookmarks', itemSubjectName, itemTopicName, itemName, itemUrl);
     }
   }
 
-  saveNewItem = (location, itemName, itemUrl) => {
+  saveNewItem = (itemLocation, itemSubjectName, itemTopicName, itemName, itemUrl) => {
     let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [SAVED_ITEM_TYPES];
 
-    let itemToSave = {itemLocation: location, itemName: itemName, itemUrl: itemUrl};
+    let itemToSave = {
+      itemSubjectName: itemSubjectName,
+      itemTopicName: itemTopicName,
+      itemLocation: itemLocation,
+      itemName: itemName,
+      itemUrl: itemUrl
+    };
+
     let locationToSave = itemToSave.itemLocation;
 
     savedItems[0][locationToSave].push(itemToSave);

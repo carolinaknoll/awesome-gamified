@@ -19,9 +19,7 @@
 }
 
 .saved-items-panel .saved-items-container {
-  margin: auto;
   text-align: left;
-  max-width: 400px;
 }
 
 .saved-items-panel .saved-item-container .button-default,
