@@ -89,31 +89,28 @@ export default class TopicList extends Component {
     let itemSubjectName = itemSubjectInfoContainer.parentElement.parentElement.getElementsByClassName('subject-title')[0].innerHTML;
     let itemTopicName = itemSubjectInfoContainer.getElementsByClassName('topic-name')[0].innerHTML;
 
-    if (hasSeenClass) {
-      let itemName = e.target.parentElement.getElementsByTagName('a')[0].text;
-      let itemUrl = e.target.parentElement.getElementsByTagName('a')[0].href;
-
-      this.saveNewItem('savedSeen', itemSubjectName, itemTopicName, itemName, itemUrl);
-    }
-
-    if (hasBookmarkClass) {
-      let itemName = e.target.parentElement.parentElement.getElementsByTagName('a')[0].text;
-      let itemUrl = e.target.parentElement.parentElement.getElementsByTagName('a')[0].href;
-
-      this.saveNewItem('savedBookmarks', itemSubjectName, itemTopicName, itemName, itemUrl);
-    }
-  }
-
-  saveNewItem = (itemLocation, itemSubjectName, itemTopicName, itemName, itemUrl) => {
-    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [SAVED_ITEM_TYPES];
-
     let itemToSave = {
       itemSubjectName: itemSubjectName,
       itemTopicName: itemTopicName,
-      itemLocation: itemLocation,
-      itemName: itemName,
-      itemUrl: itemUrl
-    };
+    }
+
+    if (hasSeenClass) {
+      itemToSave.itemName = e.target.parentElement.getElementsByTagName('a')[0].text;
+      itemToSave.itemUrl = e.target.parentElement.getElementsByTagName('a')[0].href;
+      itemToSave.itemLocation = 'savedSeen';
+    }
+
+    if (hasBookmarkClass) {
+      itemToSave.itemName = e.target.parentElement.parentElement.getElementsByTagName('a')[0].text;
+      itemToSave.itemUrl = e.target.parentElement.parentElement.getElementsByTagName('a')[0].href;
+      itemToSave.itemLocation = 'savedBookmarks';
+    }
+
+    this.saveNewItem(itemToSave);
+  }
+
+  saveNewItem = (itemToSave) => {
+    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [SAVED_ITEM_TYPES];
 
     let locationToSave = itemToSave.itemLocation;
 
