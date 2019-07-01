@@ -29,12 +29,6 @@ a {
   text-align: center;
 }
 
-.navbar .button-default {
-  padding: 5px;
-  margin: 15px;
-}
-
-.navbar .button-default .far,
-.navbar .button-default .fas {
-  margin-right: 5px;
+.button-default {
+  cursor: pointer;
 }

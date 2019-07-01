@@ -15,3 +15,13 @@
 .navbar .saved-items-panel-container {
   display: inline-block;
 }
+
+.navbar .button-default {
+  padding: 5px;
+  margin: 15px;
+}
+
+.navbar .button-default .far,
+.navbar .button-default .fas {
+  margin-right: 5px;
+}

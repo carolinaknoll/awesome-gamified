@@ -1,13 +1,6 @@
 import React, {Component}  from 'react';
 
 export default class SavedItems extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
-  }
-
   handleSavedItemsButtonClick = () => {
     let savedItemsPanel = document.querySelector('.saved-items-panel');
 
@@ -90,6 +83,8 @@ export default class SavedItems extends Component {
           <h2 className="saved-items-type-title heading-divider">
             <i className="icon bookmark fas fa-archive"></i> Saved items
           </h2>
+
+          <p>The items you have marked as seen or bookmarked are shown below.</p>
 
           <h2 className="saved-items-type-title heading-divider">
             <i className="icon bookmark fas fa-star"></i> Bookmarked

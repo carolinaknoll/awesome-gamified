@@ -34,6 +34,7 @@ export default class AwesomeGamified extends Component {
 
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
+
         <Navbar
           toggleTheme={this.toggleTheme}
           isNightlyTheme={this.state.isNightlyTheme}
