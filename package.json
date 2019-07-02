@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --mode development --open --hot",
-    "lint": "eslint src/index.js src/containers/*.js src/components/*/*.js",
+    "lint": "eslint src/index.js src/containers/*.js src/components/**/*.js",
     "start-lint": "run-p start lint",
     "build": "node_modules/.bin/webpack --config webpack.prod.js --mode production",
     "serve": "node_modules/.bin/http-server ./dist"
