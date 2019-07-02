@@ -132,4 +132,4 @@ export default class SubjectsTree extends Component {
       </div>
     );
 	}
-};
+}

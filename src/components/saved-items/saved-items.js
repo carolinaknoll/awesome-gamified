@@ -105,4 +105,4 @@ export default class SavedItems extends Component {
       </div>
     );
 	}
-};
+}

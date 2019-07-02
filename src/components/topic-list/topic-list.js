@@ -141,4 +141,4 @@ export default class TopicList extends Component {
       </div>
     );
 	}
-};
+}

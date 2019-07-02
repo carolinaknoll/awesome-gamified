@@ -25,7 +25,7 @@ export default class AwesomeGamified extends Component {
     })
   }
 
-  toggleTheme = (event) => {
+  toggleTheme = () => {
     this.setState({isNightlyTheme: !this.state.isNightlyTheme});
   }
 
