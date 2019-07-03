@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import SubjectsTree from '../components/subjects-tree/subjects-tree';
 import TopicList from '../components/topic-list/topic-list';
 import Navbar from '../components/navbar/navbar';
-import Header from '../components/common/header';
-import Footer from '../components/common/footer';
+import Header from '../components/common/header/header';
+import Footer from '../components/common/footer/footer';
 
 export default class AwesomeGamified extends Component {
   constructor(props) {
@@ -31,20 +31,6 @@ export default class AwesomeGamified extends Component {
     this.setState({isNightlyTheme: !this.state.isNightlyTheme});
   }
 
-  handleRightContainerContentVisibility = () => {
-    if (this.state.clickedTopic) {
-      return (
-        <TopicList
-          clickedTopic={this.state.clickedTopic}
-          onSavedItemsChange={this.onSavedItemsChange}
-          savedItems={this.state.savedItems}
-        />
-      )
-    } else {
-      return <Header />
-    }
-  }
-
   render() {
     const {isNightlyTheme} = this.state;
 
@@ -66,7 +52,15 @@ export default class AwesomeGamified extends Component {
           </div>
 
           <div className="right-container">
-            {this.handleRightContainerContentVisibility()}
+            <Header
+              clickedTopic={this.state.clickedTopic}
+            />
+
+            <TopicList
+              clickedTopic={this.state.clickedTopic}
+              onSavedItemsChange={this.onSavedItemsChange}
+              savedItems={this.state.savedItems}
+            />
           </div>
         </div>
 
