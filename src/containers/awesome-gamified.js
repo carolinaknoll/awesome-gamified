@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SubjectsTree from '../components/subjects-tree/subjects-tree';
 import TopicList from '../components/topic-list/topic-list';
 import Navbar from '../components/navbar/navbar';
+import Header from '../components/common/header';
 import Footer from '../components/common/footer';
 
 export default class AwesomeGamified extends Component {
@@ -9,6 +10,7 @@ export default class AwesomeGamified extends Component {
     super(props);
 
     this.state = {
+      clickedTopic: '',
       isNightlyTheme: true,
     }
   }
@@ -27,6 +29,20 @@ export default class AwesomeGamified extends Component {
 
   toggleTheme = () => {
     this.setState({isNightlyTheme: !this.state.isNightlyTheme});
+  }
+
+  handleRightContainerContentVisibility = () => {
+    if (this.state.clickedTopic) {
+      return (
+        <TopicList
+          clickedTopic={this.state.clickedTopic}
+          onSavedItemsChange={this.onSavedItemsChange}
+          savedItems={this.state.savedItems}
+        />
+      )
+    } else {
+      return <Header />
+    }
   }
 
   render() {
@@ -50,11 +66,7 @@ export default class AwesomeGamified extends Component {
           </div>
 
           <div className="right-container">
-            <TopicList
-              clickedTopic={this.state.clickedTopic}
-              onSavedItemsChange={this.onSavedItemsChange}
-              savedItems={this.state.savedItems}
-            />
+            {this.handleRightContainerContentVisibility()}
           </div>
         </div>
 
