@@ -11,7 +11,7 @@ export default class Navbar extends Component {
 
     return (
       <div className="navbar">
-        <h3 className="title">
+        <h3 className="awesome-text-gradient title">
           <i className="fas fa-glasses"></i> Awesome Gamified
         </h3>
 

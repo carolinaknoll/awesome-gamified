@@ -10,6 +10,10 @@ html, body {
   width: 100%;
 }
 
+h1 {
+  font-size: 40px;
+}
+
 a {
   transition: 0.5s;
 }
@@ -31,4 +35,18 @@ a {
 
 .button-default {
   cursor: pointer;
+}
+
+.awesome-text-gradient {
+  background: rgba(0, 212, 255);
+  background: linear-gradient(90deg, rgba(196,43,175,1) 25%, rgba(0,212,255,1) 75%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.awesome-gradient {
+  background: rgba(0, 212, 255);
+  background: linear-gradient(90deg, transparent, rgba(196,43,175,1), rgba(0,212,255,1), transparent);
+  border: none;
 }

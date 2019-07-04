@@ -2,7 +2,16 @@
   text-align: center;
 }
 
-.header .title,
+.header .awesome-text-gradient {
+  margin-bottom: 0;
+  padding: 0;
+}
+
 .header .subtitle {
-  margin: 10px 0 0;
+  padding: 0;
+  margin: 0;
+}
+
+.header .awesome-gradient {
+  height: 2px;
 }
