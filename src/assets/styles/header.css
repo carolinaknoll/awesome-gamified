@@ -15,3 +15,9 @@
 .header .awesome-gradient {
   height: 2px;
 }
+
+.header .instructions-container {
+  text-align: left;
+  max-width: 60%;
+  margin: auto;
+}
