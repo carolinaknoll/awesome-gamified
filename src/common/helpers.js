@@ -16,3 +16,12 @@ export function toggleDifferentClasses(target, firstClass, secondClass) {
     target.classList.add(firstClass);
   }
 }
+
+export function translateLocation(location) {
+  let locationMap = {
+    'savedSeen': 'seen',
+    'savedBookmarks': 'bookmarked',
+  }
+
+  return locationMap[location];
+}

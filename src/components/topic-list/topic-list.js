@@ -2,6 +2,8 @@ import React, {Component}  from 'react';
 import axios from 'axios';
 import marked from 'marked';
 import {SAVED_ITEM_TYPES} from '../../common/variables';
+import {toast} from 'react-toastify';
+import {translateLocation} from '../../common/helpers';
 
 export default class TopicList extends Component {
   constructor(props) {
@@ -119,6 +121,19 @@ export default class TopicList extends Component {
     localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
 
     this.props.onSavedItemsChange(savedItems);
+
+    this.notifySavedItem(itemToSave.itemName, itemToSave.itemLocation);
+  }
+
+  notifySavedItem = (itemName, itemLocation) => {
+    let translatedLocation = translateLocation(itemLocation);
+
+    let formattedMessage = (
+      <span><i className="awesome-text-gradient fas fa-hand-holding-heart"> </i>
+      Your topic {itemName} has been saved as {translatedLocation}!</span>
+    );
+
+    return toast(formattedMessage);
   }
 
   renderTopicList = () => {

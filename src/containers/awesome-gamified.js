@@ -4,6 +4,8 @@ import TopicList from '../components/topic-list/topic-list';
 import Navbar from '../components/navbar/navbar';
 import Header from '../components/common/header/header';
 import Footer from '../components/common/footer/footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export default class AwesomeGamified extends Component {
   constructor(props) {
@@ -36,6 +38,7 @@ export default class AwesomeGamified extends Component {
 
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
+        <ToastContainer />
 
         <Navbar
           toggleTheme={this.toggleTheme}
