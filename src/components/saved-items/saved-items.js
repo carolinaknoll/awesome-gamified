@@ -1,4 +1,6 @@
 import React, {Component}  from 'react';
+import {toast} from 'react-toastify';
+import {translateLocation} from '../../common/helpers';
 
 export default class SavedItems extends Component {
   handleSavedItemsButtonClick = () => {
@@ -40,16 +42,32 @@ export default class SavedItems extends Component {
     }
   }
 
-  handleSavedItemsRemoveItemButtonClick = (savedItems, savedItemName, savedItemIndex) => {
-    let savedItemsArrayWithoutRemovedElement = savedItems[0][savedItemName].filter((item, index) => {
+  handleSavedItemsRemoveItemButtonClick = (savedItems, savedItemLocation, savedItemIndex) => {
+    let removedItemName = savedItems[0][savedItemLocation][savedItemIndex].itemName;
+    let removedItemLocation = savedItems[0][savedItemLocation][savedItemIndex].itemLocation;
+
+    let savedItemsArrayWithoutRemovedElement = savedItems[0][savedItemLocation].filter((item, index) => {
       return savedItemIndex !== index;
     });
 
-    savedItems[0][savedItemName] = savedItemsArrayWithoutRemovedElement;
+    savedItems[0][savedItemLocation] = savedItemsArrayWithoutRemovedElement;
 
     localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
 
     this.props.onSavedItemsChange(savedItems);
+
+    this.notifyRemovedItem(removedItemName, removedItemLocation);
+  }
+
+  notifyRemovedItem = (removedItemName, removedItemLocation) => {
+    let translatedLocation = translateLocation(removedItemLocation);
+
+    let formattedMessage = (
+      <span><i className="awesome-text-gradient fas fa-hand-holding-heart"> </i>
+      Your topic {removedItemName} has been removed from your {translatedLocation} list!</span>
+    );
+
+    return toast(formattedMessage);
   }
 
   componentDidMount = () => {
