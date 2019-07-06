@@ -54,3 +54,9 @@ a {
   background: linear-gradient(90deg, transparent, rgba(196,43,175,1), rgba(0,212,255,1), transparent);
   border: none;
 }
+
+/* possible fix to nav/header gradient fa icons not being shown on Chrome */
+.navbar .fas,
+.header .fas {
+  display: initial;
+}
