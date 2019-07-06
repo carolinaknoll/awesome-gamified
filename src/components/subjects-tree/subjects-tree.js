@@ -120,11 +120,11 @@ export default class SubjectsTree extends Component {
 	render() {
     return (
       <div className="subjects">
-        <div className="subjects-tree-title-container">
-          <i className="tree-icon fas fa-book-open"></i>
+        <div className="awesome-text-gradient subjects-tree-title-container">
+          <i className="awesome-text-gradient tree-icon fas fa-book-open"></i>
           <h3 className="subject-title">Choose a subject below:</h3>
           <p className="toggle-subject-topics" onClick={this.toggleSubjectTopics}>
-            <i className="topic-icon far fa-bookmark"></i>
+            <i className="awesome-text-gradient topic-icon far fa-bookmark"></i>
             Open/Close all subject topics
           </p>
         </div>

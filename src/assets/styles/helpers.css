@@ -13,9 +13,11 @@
 }
 
 .heading-divider:before {
-  background-image: linear-gradient(to right, transparent, #6a7895, #6a7895);
+  background: rgba(0, 212, 255);
+  background: linear-gradient(90deg, transparent, rgba(196, 43, 175, 1) 25%, rgba(0, 212, 255, 1) 75%);
 }
 
 .heading-divider:after {
-  background-image: linear-gradient(to right, #6a7895, #6a7895, transparent);
+  background: rgba(0, 212, 255);
+  background: linear-gradient(90deg, rgba(0, 212, 255, 1) 25%, rgba(196, 43, 175, 1) 75%, transparent);
 }

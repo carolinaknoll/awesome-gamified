@@ -32,7 +32,7 @@
 }
 
 .nightly-theme .button-default {
-  background: #1d2129;
+  background: #1f242d;
   border: 1px solid #FFF;
   color: #FFF;
 }
@@ -111,4 +111,8 @@
 .brightly-theme .toast-container {
   color: #000;
   background: #d2d6e0;
+}
+
+.nightly-theme .header .instructions {
+  font-weight: lighter;
 }

@@ -11,24 +11,24 @@ export default class Header extends Component {
 
           <h2>The process is simple, just follow the <span className="awesome-text-gradient">1-2-3!</span></h2>
           <div className="instructions-container">
-            <h3><span className="awesome-text-gradient"><i className="fas fa-glasses"></i> 1: </span>
+            <h3 className="instructions"><span className="awesome-text-gradient"><i className="fas fa-glasses"></i> 1: </span>
               Select a subject from the subject list on your left. Click it, and you should see all of the supported Awesome Lists that
               GitHub users have created for your selected subject.
             </h3>
 
-            <h3><span className="awesome-text-gradient"><i className="fas fa-glasses"></i> 2: </span>
+            <h3 className="instructions"><span className="awesome-text-gradient"><i className="fas fa-glasses"></i> 2: </span>
               Click on the Awesome List you wish to see, and it will appear right here!
             </h3>
 
-            <h3><span className="awesome-text-gradient"><i className="fas fa-glasses"></i> 3: </span>
+            <h3 className="instructions"><span className="awesome-text-gradient"><i className="fas fa-glasses"></i> 3: </span>
               You can then scroll, add and remove topics from your selected list, and see all of them on your Saved Items panel, if you click
               on <span className="awesome-text-gradient">'View Saved Items'</span> above.
             </h3>
           </div>
 
-          <h3>
+          <h3 className="instructions">
             Now that you know <span className="awesome-text-gradient"> everything you need,</span> make sure to explore and save items you
-            wish to mark as seen, or to bookmark for later review! <i className="awesome-text-gradient fas fa-glasses"></i>
+            wish to mark as seen, or to bookmark for later review! <i className="awesome-text-gradient fas fa-grin-tongue-wink"></i>
           </h3>
 
           <hr className="awesome-gradient"></hr>

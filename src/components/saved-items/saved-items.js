@@ -81,18 +81,18 @@ export default class SavedItems extends Component {
     return (
       <div className="saved-items-panel-container">
         <button className="button-default saved-items-button" onClick={this.handleSavedItemsButtonClick}>
-          <i className="far fa-save"></i>
+          <i className="awesome-text-gradient far fa-save"></i>
           View saved items
         </button>
 
         <div className="saved-items-panel">
-          <h2 className="saved-items-type-title heading-divider">
+          <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
             <i className="icon bookmark fas fa-archive"></i> Saved items
           </h2>
 
           <p>The items you have marked as seen or bookmarked are shown below.</p>
 
-          <h2 className="saved-items-type-title heading-divider">
+          <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
             <i className="icon bookmark fas fa-star"></i> Bookmarked
           </h2>
 
@@ -100,7 +100,7 @@ export default class SavedItems extends Component {
             {this.getSavedBookmarks()}
           </div>
 
-          <h2 className="saved-items-type-title heading-divider">
+          <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
             <i className="icon bookmark fas fa-eye"></i> Seen
           </h2>
 

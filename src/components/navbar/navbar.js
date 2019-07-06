@@ -17,7 +17,7 @@ export default class Navbar extends Component {
 
         <div className="toggle-theme-container">
           <button className="button-default" onClick={this.handleToggleThemeClick}>
-            <i className={isNightlyTheme ? 'fas fa-sun' : 'fas fa-moon'}></i>
+            <i className={isNightlyTheme ? 'awesome-text-gradient fas fa-sun' : 'awesome-text-gradient fas fa-moon'}></i>
             Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
           </button>
         </div>
