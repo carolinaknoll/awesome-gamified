@@ -1,3 +1,6 @@
+import React from 'react';
+import {toast} from 'react-toastify';
+
 export function sortByNameAscending(array) {
   array.sort((a, b) => {
     let nameA = a.name.toLowerCase();
@@ -5,7 +8,7 @@ export function sortByNameAscending(array) {
 
     return nameA.localeCompare(nameB);
   })
-};
+}
 
 export function toggleDifferentClasses(target, firstClass, secondClass) {
   if (target.classList.contains(firstClass)) {
@@ -24,4 +27,17 @@ export function translateLocation(location) {
   }
 
   return locationMap[location];
+}
+
+export function notifyAction(itemName, itemLocation, icon, action) {
+  let translatedLocation = translateLocation(itemLocation);
+
+  let formattedIcon = `awesome-text-gradient fas ${icon}`;
+
+  let formattedMessage = (
+    <span><i className={formattedIcon}> </i>
+    Your topic {itemName} has been {action} your {translatedLocation} list!</span>
+  );
+
+  return toast(formattedMessage);
 }

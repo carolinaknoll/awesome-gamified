@@ -1,6 +1,5 @@
 import React, {Component}  from 'react';
-import {toast} from 'react-toastify';
-import {translateLocation} from '../../common/helpers';
+import {notifyAction} from '../../common/helpers';
 
 export default class SavedItems extends Component {
   handleSavedItemsButtonClick = () => {
@@ -56,18 +55,7 @@ export default class SavedItems extends Component {
 
     this.props.onSavedItemsChange(savedItems);
 
-    this.notifyRemovedItem(removedItemName, removedItemLocation);
-  }
-
-  notifyRemovedItem = (removedItemName, removedItemLocation) => {
-    let translatedLocation = translateLocation(removedItemLocation);
-
-    let formattedMessage = (
-      <span><i className="awesome-text-gradient fas fa-hand-holding-heart"> </i>
-      Your topic {removedItemName} has been removed from your {translatedLocation} list!</span>
-    );
-
-    return toast(formattedMessage);
+    notifyAction(removedItemName, removedItemLocation, 'fa-glasses', 'removed from');
   }
 
   componentDidMount = () => {
