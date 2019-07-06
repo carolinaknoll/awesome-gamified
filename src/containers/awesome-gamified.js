@@ -38,7 +38,11 @@ export default class AwesomeGamified extends Component {
 
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
-        <ToastContainer />
+        <ToastContainer
+          toastClassName='toast-container'
+          bodyClassName='toast-container'
+          autoClose={4000}
+        />
 
         <Navbar
           toggleTheme={this.toggleTheme}

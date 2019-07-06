@@ -35,8 +35,8 @@ export function notifyAction(itemName, itemLocation, icon, action) {
   let formattedIcon = `awesome-text-gradient fas ${icon}`;
 
   let formattedMessage = (
-    <span><i className={formattedIcon}> </i>
-    Your topic {itemName} has been {action} your {translatedLocation} list!</span>
+    <span><i className={formattedIcon}></i> Your topic <span className="awesome-text-gradient bold">{itemName} </span>
+    has been <span className="bold"> {action} </span> your <span className="bold">{translatedLocation}</span> list!</span>
   );
 
   return toast(formattedMessage);

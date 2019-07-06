@@ -121,7 +121,7 @@ export default class TopicList extends Component {
 
     this.props.onSavedItemsChange(savedItems);
 
-    notifyAction(itemToSave.itemName, itemToSave.itemLocation, 'fa-hand-holding-heart', 'saved to');
+    notifyAction(itemToSave.itemName, itemToSave.itemLocation, 'fa-smile-wink', 'saved to');
   }
 
   renderTopicList = () => {

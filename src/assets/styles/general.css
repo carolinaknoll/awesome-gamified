@@ -18,6 +18,10 @@ a {
   transition: 0.5s;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .right-container {
   width: 100%;
 }

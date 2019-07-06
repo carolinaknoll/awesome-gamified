@@ -102,3 +102,13 @@
   background: #e1e4ea;
   box-shadow: -1px 3px 20px -1px rgba(9, 9, 9, 0.4);
 }
+
+.nightly-theme .toast-container {
+  color: #FFF;
+  background: #343c4b;
+}
+
+.brightly-theme .toast-container {
+  color: #000;
+  background: #d2d6e0;
+}

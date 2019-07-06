@@ -55,7 +55,7 @@ export default class SavedItems extends Component {
 
     this.props.onSavedItemsChange(savedItems);
 
-    notifyAction(removedItemName, removedItemLocation, 'fa-glasses', 'removed from');
+    notifyAction(removedItemName, removedItemLocation, 'fa-trash-alt', 'removed from');
   }
 
   componentDidMount = () => {
