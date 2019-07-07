@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
 import SavedItems from '../saved-items/saved-items';
+import ToggleTheme from '../toggle-theme';
 
 export default class Navbar extends Component {
   handleToggleThemeClick = () => {
@@ -7,20 +8,16 @@ export default class Navbar extends Component {
   }
 
 	render() {
-    const {isNightlyTheme} = this.props;
-
     return (
       <div className="navbar">
         <h3 className="awesome-text-gradient title">
           <i className="fas fa-glasses"></i> Awesome Gamified
         </h3>
 
-        <div className="toggle-theme-container">
-          <button className="button-default" onClick={this.handleToggleThemeClick}>
-            <i className={isNightlyTheme ? 'awesome-text-gradient fas fa-sun' : 'awesome-text-gradient fas fa-moon'}></i>
-            Switch to {isNightlyTheme ? 'brightly' : 'nightly'} theme
-          </button>
-        </div>
+        <ToggleTheme
+          isNightlyTheme={this.props.isNightlyTheme}
+          toggleTheme={this.props.toggleTheme}
+        />
 
         <SavedItems
           onSavedItemsChange={this.props.onSavedItemsChange}
