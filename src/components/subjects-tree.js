@@ -1,6 +1,6 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
-import {sortByNameAscending, toggleDifferentClasses} from '../../common/helpers';
+import {sortByNameAscending, toggleDifferentClasses} from '../common/helpers';
 
 export default class SubjectsTree extends Component {
   constructor(props) {

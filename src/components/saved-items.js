@@ -1,5 +1,5 @@
 import React, {Component}  from 'react';
-import {notifyAction} from '../../common/helpers';
+import {notifyAction} from '../common/helpers';
 
 export default class SavedItems extends Component {
   handleSavedItemsButtonClick = () => {

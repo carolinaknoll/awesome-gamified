@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import SubjectsTree from '../components/subjects-tree/subjects-tree';
-import TopicList from '../components/topic-list/topic-list';
-import Navbar from '../components/navbar/navbar';
-import Header from '../components/common/header/header';
-import Footer from '../components/common/footer/footer';
+import SubjectsTree from '../components/subjects-tree';
+import TopicList from '../components/topic-list';
+import Navbar from '../components/navbar';
+import Header from '../components/header';
+import Footer from '../components/footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 

@@ -1,6 +1,6 @@
 import React, {Component}  from 'react';
-import SavedItems from '../saved-items/saved-items';
-import ToggleTheme from '../toggle-theme';
+import SavedItems from './saved-items';
+import ToggleTheme from './toggle-theme';
 
 export default class Navbar extends Component {
   handleToggleThemeClick = () => {

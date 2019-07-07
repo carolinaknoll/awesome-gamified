@@ -1,8 +1,8 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
 import marked from 'marked';
-import {SAVED_ITEM_TYPES} from '../../common/variables';
-import {notifyAction} from '../../common/helpers';
+import {SAVED_ITEM_TYPES} from '../common/variables';
+import {notifyAction} from '../common/helpers';
 
 export default class TopicList extends Component {
   constructor(props) {
