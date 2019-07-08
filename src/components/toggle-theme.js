@@ -1,4 +1,10 @@
 import React, {Component}  from 'react';
+import PropTypes from 'prop-types';
+
+ToggleTheme.propTypes = {
+  isNightlyTheme: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.func.isRequired
+}
 
 export default class ToggleTheme extends Component {
   handleToggleThemeClick = () => {

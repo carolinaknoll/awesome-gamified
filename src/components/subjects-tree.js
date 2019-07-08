@@ -1,6 +1,11 @@
 import React, {Component}  from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import {sortByNameAscending, toggleDifferentClasses} from '../common/helpers';
+
+SubjectsTree.propTypes = {
+  onTopicClick: PropTypes.func.isRequired,
+}
 
 export default class SubjectsTree extends Component {
   constructor(props) {
