@@ -5,11 +5,6 @@ import marked from 'marked';
 import {SAVED_ITEM_TYPES} from '../common/variables';
 import {notifyAction} from '../common/helpers';
 
-TopicList.propTypes = {
-  onSavedItemsChange: PropTypes.func.isRequired,
-  clickedTopic: PropTypes.string.isRequired
-}
-
 export default class TopicList extends Component {
   constructor(props) {
     super(props);
@@ -150,4 +145,9 @@ export default class TopicList extends Component {
       </div>
     );
 	}
+}
+
+TopicList.propTypes = {
+  onSavedItemsChange: PropTypes.func.isRequired,
+  clickedTopic: PropTypes.string.isRequired
 }

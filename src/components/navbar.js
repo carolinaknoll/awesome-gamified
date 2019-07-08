@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import SavedItems from './saved-items';
 import ToggleTheme from './toggle-theme';
 
-Navbar.propTypes = {
-  isNightlyTheme: PropTypes.bool.isRequired,
-  onSavedItemsChange: PropTypes.func.isRequired,
-  savedItems: PropTypes.object.isRequired,
-  toggleTheme: PropTypes.string.isRequired
-}
-
 export default class Navbar extends Component {
   handleToggleThemeClick = () => {
     this.props.toggleTheme();
@@ -34,4 +27,11 @@ export default class Navbar extends Component {
       </div>
     );
 	}
+}
+
+Navbar.propTypes = {
+  isNightlyTheme: PropTypes.bool.isRequired,
+  onSavedItemsChange: PropTypes.func.isRequired,
+  savedItems: PropTypes.array,
+  toggleTheme: PropTypes.func.isRequired
 }

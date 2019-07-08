@@ -2,11 +2,6 @@ import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
 import {notifyAction} from '../common/helpers';
 
-SavedItems.propTypes = {
-  onSavedItemsChange: PropTypes.func.isRequired,
-  savedItems: PropTypes.object.isRequired
-}
-
 export default class SavedItems extends Component {
   handleSavedItemsButtonClick = () => {
     let savedItemsPanel = document.querySelector('.saved-items-panel');
@@ -117,4 +112,9 @@ export default class SavedItems extends Component {
       </div>
     );
 	}
+}
+
+SavedItems.propTypes = {
+  onSavedItemsChange: PropTypes.func.isRequired,
+  savedItems: PropTypes.array
 }

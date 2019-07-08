@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-Header.propTypes = {
-  clickedTopic: PropTypes.string.isRequired,
-}
-
 export default class Header extends Component {
   showHeaderOnlyWhenClickedTopicIsEmpty = () => {
     if (!this.props.clickedTopic) {
@@ -56,4 +52,8 @@ export default class Header extends Component {
       </div>
     );
   }
+}
+
+Header.propTypes = {
+  clickedTopic: PropTypes.string.isRequired,
 }
