@@ -4,10 +4,10 @@
   "description": "Awesome Gamified - See your progress and save awesome links you've already seen!",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --open --hot",
+    "start": "node_modules/.bin/webpack-dev-server --config webpack.dev.js --mode development --open --hot",
     "lint": "eslint src/index.js src/containers/*.js src/components/**/*.js",
     "start-lint": "run-p start lint",
-    "build": "node_modules/.bin/webpack --config webpack.config.js",
+    "build": "node_modules/.bin/webpack --config webpack.prod.js --mode production",
     "serve": "node_modules/.bin/http-server ./dist",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
@@ -46,6 +46,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-dev-server": "^3.4.1",
+    "webpack-merge": "^4.2.1"
   }
 }
