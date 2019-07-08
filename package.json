@@ -4,11 +4,13 @@
   "description": "Awesome Gamified - See your progress and save awesome links you've already seen!",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --mode development --open --hot",
+    "start": "node_modules/.bin/webpack-dev-server --open --hot",
     "lint": "eslint src/index.js src/containers/*.js src/components/**/*.js",
     "start-lint": "run-p start lint",
-    "build": "node_modules/.bin/webpack --config webpack.prod.js --mode production",
-    "serve": "node_modules/.bin/http-server ./dist"
+    "build": "node_modules/.bin/webpack --config webpack.config.js",
+    "serve": "node_modules/.bin/http-server ./dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,10 @@
   "bugs": {
     "url": "https://github.com/carolinaknoll/awesome-gamified/issues"
   },
-  "homepage": "https://github.com/carolinaknoll/awesome-gamified#readme",
+  "homepage": "https://carolinaknoll.github.io/awesome-gamified",
   "dependencies": {
     "axios": "^0.19.0",
+    "gh-pages": "^2.0.1",
     "marked": "^0.6.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
