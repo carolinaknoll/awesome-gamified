@@ -16,6 +16,10 @@
   display: inline-block;
 }
 
+.navbar .title {
+  cursor: pointer;
+}
+
 .navbar .button-default {
   padding: 5px;
   margin: 15px;

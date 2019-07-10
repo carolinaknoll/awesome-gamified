@@ -7,11 +7,12 @@ export default function Navbar({
   isNightlyTheme,
   toggleTheme,
   onSavedItemsChange,
+  onNavbarClick,
   savedItems
 }) {
   return (
     <div className="navbar">
-      <h3 className="awesome-text-gradient title">
+      <h3 className="awesome-text-gradient title" onClick={onNavbarClick}>
         <i className="fas fa-glasses"></i> Awesome Gamified
       </h3>
 
@@ -28,6 +29,7 @@ export default function Navbar({
 Navbar.propTypes = {
   isNightlyTheme: PropTypes.bool.isRequired,
   onSavedItemsChange: PropTypes.func.isRequired,
+  onNavbarClick: PropTypes.func.isRequired,
   savedItems: PropTypes.array,
   toggleTheme: PropTypes.func.isRequired
 };

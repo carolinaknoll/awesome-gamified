@@ -141,7 +141,9 @@ export default class TopicList extends Component {
 	render() {
     return (
       <div className="topic-list-container">
-        {this.renderTopicList()}
+      {this.props.clickedTopic ? (
+        this.renderTopicList()
+      ) : null}
       </div>
     );
 	}

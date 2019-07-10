@@ -33,6 +33,10 @@ export default class AwesomeGamified extends Component {
     this.setState({isNightlyTheme: !this.state.isNightlyTheme});
   }
 
+  onNavbarClick = () => {
+    this.setState({clickedTopic: ''});
+  }
+
   render() {
     const {isNightlyTheme} = this.state;
 
@@ -48,6 +52,7 @@ export default class AwesomeGamified extends Component {
           toggleTheme={this.toggleTheme}
           isNightlyTheme={this.state.isNightlyTheme}
           onSavedItemsChange={this.onSavedItemsChange}
+          onNavbarClick={this.onNavbarClick}
           savedItems={this.state.savedItems}
         />
 
