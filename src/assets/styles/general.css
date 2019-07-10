@@ -8,6 +8,11 @@ html, body {
   height: 100%;
   margin: 0;
   width: 100%;
+  line-height: 1.5;
+}
+
+button {
+  font-size: 14px;
 }
 
 h1 {
