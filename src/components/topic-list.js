@@ -4,17 +4,82 @@ import axios from 'axios';
 import marked from 'marked';
 import {SAVED_ITEM_TYPES} from '../common/variables';
 import {notifyAction} from '../common/helpers';
+import firebase, { auth, provider } from '../firebase/firebase';
 
 export default class TopicList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       errorMessage: '',
       topicMarkdown: '',
-    };
+      selected: '',
+      email:'',
+      user: ''
+    }
+    this.login = this.login.bind(this); 
+    this.logout = this.logout.bind(this); 
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  /* **********************************
+  * Controller of firebase applications
+  * Developed by Elio Neto
+  * From OpenSource Community 
+  ********************************** */
+
+ componentDidMount() {
+  auth.onAuthStateChanged((user, email) => {
+    if (user) {
+      this.setState({ user, email });
+    } 
+  });
+}
+
+logout() {
+  auth.signOut()
+  .then(() => {
+    this.setState({
+      user: null,
+      email:null
+    });
+  });
+}
+login() {
+  auth.signInWithPopup(provider) 
+    .then((result) => {
+      const user = result.user;
+      const email = result.email;
+      this.setState({
+        user,
+        email
+      });
+    });
+}
+handleChange(e) {
+  this.setState({
+    [e.target.name]: e.target.value
+  });
+}
+handleSubmit(e) {
+  e.preventDefault();
+  const itemsRef = firebase.database().ref('sharedPreferences');
+  const item = {
+    user: this.state.user.displayName,
+    email: this.state.user.email, 
+    selected: this.state.selected
+  }
+  itemsRef.push(item);
+  this.setState({
+    username: '',
+    email: '',
+    selected: ''
+  });
+}
+
+
+
+/* *********************************************** */
   getRawAwesomeListContent = (readmeUrl) => {
     axios.get(readmeUrl)
     .then((topicMarkdown) => {
@@ -42,6 +107,7 @@ export default class TopicList extends Component {
     }
 
     const uppercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/README.md`;
+    console.log(uppercasedReadmeUrl);
     const lowercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/readme.md`;
 
     this.getRawAwesomeListContent(uppercasedReadmeUrl, function() {
@@ -141,9 +207,19 @@ export default class TopicList extends Component {
 	render() {
     return (
       <div className="topic-list-container">
-      {this.props.clickedTopic ? (
-        this.renderTopicList()
-      ) : null}
+        {/* <p>{this.props.clickedTopic}</p> */}
+        {this.state.user ? 
+          <div>
+            <button onClick={this.handleSubmit}>Submit</button>
+            <input type='hidden' value = {this.state.user.email} ></input>
+            <input type='hidden' value = {this.state.selected = this.props.clickedTopic} ></input>
+          </div>
+          : 
+          <div>
+            <button onClick={this.login}>Log In</button>   
+          </div>
+        }
+        {this.renderTopicList()}
       </div>
     );
 	}
