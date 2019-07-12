@@ -1,18 +1,25 @@
-### Awesome Gamified
-:eyeglasses: Awesome Gamified - See your progress and save awesome links you've already seen!
+## :eyeglasses: Awesome Gamified
+:bookmark: See your progress and save awesome links you've already seen!
 
 ***
 
-Awesome Gamified is a project with the idea of turning awesome lists like awesome-mental-health and awesome-programming into gamified experiences. As it is being developed, it will soon have functionalities like saving the links you have already seen and showing them on a different screen for easy access.
+![awesome-gamified-presentation.png](https://i.postimg.cc/05Zp6Ygf/awesome-gamified-presentation.png)
 
-If you would like to contribute, please refer to the CONTRIBUTING file for this project. It would be awesome to have some help with content and code review. Thank you!
+Awesome Gamified is a project with the idea of turning awesome lists like awesome-mental-health and awesome-programming into gamified experiences. As it is being developed, some of the current functionalities are saving the links you have already seen and showing them on a different screen for easy access.
 
-### How to run Awesome Gamified
+The website is hosted via Github Pages, and you can view it [here](https://carolinaknoll.github.io/awesome-gamified/).
 
-As the project says, just follow the 1-2-3! That is, type the three commands below in your favorite command line and you will be good to go. :eyeglasses:
+### :eyeglasses: Contributing
 
-* 1. Clone this repository locally: `git clone git@github.com:carolinaknoll/awesome-gamified.git`
-* 2. Run a npm install: `npm i`
-* 3. Now, all that's left is to start the engines! Finally, type: `npm start`
+If you would like to run the project locally to contribute, please refer to the [CONTRIBUTING](./CONTRIBUTING.md) file for details. It would be awesome to have some help with content and code review. Thank you! :smile:
 
-Now, the project should automatically open on `http://localhost:3000/` and you will be able to see it and explore. 
+### :eyeglasses: Thank you!
+
+:sparkles: A huge thank you to [Lockys](https://github.com/lockys) for his [AwesomeSearch](https://github.com/lockys/AwesomeSearch) project, which was an inspiration for Awesome Gamified.
+
+:sparkles: Thank you also to the users who contributed to Awesome Gamified! They are:
+- [José Neto](https://github.com/netojose)
+- [Anderson Souza](https://github.com/andersou)
+- [Willian S. Soares](https://github.com/willsoares)
+
+And finally, thanks to everyone who contributed externally with comments and insights about how to improve the project.
