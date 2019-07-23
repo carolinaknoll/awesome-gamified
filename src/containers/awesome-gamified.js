@@ -38,7 +38,7 @@ export default class AwesomeGamified extends Component {
   }
 
   render() {
-    const {isNightlyTheme} = this.state;
+    const {isNightlyTheme, clickedTopic} = this.state;
 
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
@@ -68,11 +68,12 @@ export default class AwesomeGamified extends Component {
               clickedTopic={this.state.clickedTopic}
             />
 
-            <TopicList
-              clickedTopic={this.state.clickedTopic}
-              onSavedItemsChange={this.onSavedItemsChange}
-              savedItems={this.state.savedItems}
-            />
+            { clickedTopic ?
+              <TopicList
+                clickedTopic={this.state.clickedTopic}
+                onSavedItemsChange={this.onSavedItemsChange}
+                savedItems={this.state.savedItems}
+              /> : null }
           </div>
         </div>
 
