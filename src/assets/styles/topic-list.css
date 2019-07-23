@@ -8,3 +8,7 @@
 .topic-list-container ul li .button-default {
   margin-right: 5px;
 }
+
+.topic-list-container > div img {
+  max-width: 100%;
+}
