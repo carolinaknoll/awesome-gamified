@@ -1,8 +1,8 @@
 .footer {
   flex-shrink: 0;
-  min-height: 60px;
   transition: 0.5s;
   width: 100%;
+  flex: 1 1 auto;
 }
 
 .footer p {
