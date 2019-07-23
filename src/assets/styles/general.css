@@ -73,3 +73,7 @@ a {
 .header .fas {
   display: initial;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
