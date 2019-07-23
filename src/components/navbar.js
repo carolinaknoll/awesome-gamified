@@ -19,12 +19,28 @@ export default function Navbar({
         <i className="fas fa-glasses"></i> Awesome Gamified
       </h3>
 
-      <ToggleTheme isNightlyTheme={isNightlyTheme} toggleTheme={toggleTheme} />
+      <div className="desktop">
+        <SavedItems
+          onSavedItemsChange={onSavedItemsChange}
+          savedItems={savedItems}
+        />
+      </div>
 
-      <SavedItems
-        onSavedItemsChange={onSavedItemsChange}
-        savedItems={savedItems}
-      />
+      <div className="mobile">
+        <SavedItems
+          onSavedItemsChange={onSavedItemsChange}
+          savedItems={savedItems}
+          showText={false}
+        />
+      </div>
+
+      <div className="desktop">
+        <ToggleTheme isNightlyTheme={isNightlyTheme} toggleTheme={toggleTheme} />
+      </div>
+
+      <div className="mobile">
+        <ToggleTheme isNightlyTheme={isNightlyTheme} toggleTheme={toggleTheme} showText={false} />
+      </div>      
     </div>
   );
 }

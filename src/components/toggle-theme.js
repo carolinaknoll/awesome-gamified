@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function ToggleTheme({ isNightlyTheme, toggleTheme }) {
+export default function ToggleTheme({ isNightlyTheme, toggleTheme, showText }) {
   return (
     <div className="toggle-theme-container">
       <button className="button-default" onClick={toggleTheme}>
@@ -12,7 +12,7 @@ export default function ToggleTheme({ isNightlyTheme, toggleTheme }) {
               : "awesome-text-gradient fas fa-moon"
           }
         ></i>
-        Switch to {isNightlyTheme ? "brightly" : "nightly"} theme
+        { showText ? `Switch to ${isNightlyTheme ? "brightly" : "nightly"} theme` : null }
       </button>
     </div>
   );
@@ -20,5 +20,10 @@ export default function ToggleTheme({ isNightlyTheme, toggleTheme }) {
 
 ToggleTheme.propTypes = {
   isNightlyTheme: PropTypes.bool.isRequired,
-  toggleTheme: PropTypes.func.isRequired
+  toggleTheme: PropTypes.func.isRequired,
+  showText: PropTypes.bool
+};
+
+ToggleTheme.defaultProps = {
+  showText: true
 };

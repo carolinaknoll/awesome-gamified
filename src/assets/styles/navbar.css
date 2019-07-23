@@ -40,14 +40,7 @@
   margin-right: 5px;
 }
 
-@media screen and (max-width: 728px) {
-  .navbar .button-default {
-    display: none;
-  }  
-}
-
-@media screen and (min-width: 728px) {
-  .navbar .list-button {
-    display: none !important;
-  }
+.navbar .mobile .button-default .far,
+.navbar .mobile .button-default .fas {
+  margin-right: 0;
 }

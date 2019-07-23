@@ -12,10 +12,21 @@
   position: absolute;
   margin: 10px;
   min-width: 600px;
-  height: 650px;
+  height: 400px;
   right: -115%;
   transition: 0.5s;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 728px) {
+  .saved-items-panel.open {
+    min-width: unset;
+    max-width: 500px;
+  } 
+}
+
+.saved-items-panel.open p {
+  text-align: center;
 }
 
 .saved-items-panel .saved-items-container {

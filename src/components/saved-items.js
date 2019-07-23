@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import {notifyAction} from '../common/helpers';
 
 export default class SavedItems extends Component {
-  handleSavedItemsButtonClick = () => {
-    let savedItemsPanel = document.querySelector('.saved-items-panel');
+  state = {
+    open: false
+  }  
 
-    savedItemsPanel.classList.toggle('open');
+  handleSavedItemsButtonClick = () => {
+    this.setState({ open: !this.state.open });
   }
 
   getSavedSeen = () => {
@@ -79,14 +81,16 @@ export default class SavedItems extends Component {
   }
 
 	render() {
+    const {open} = this.state;
+
     return (
       <div className="saved-items-panel-container">
         <button className="button-default saved-items-button" onClick={this.handleSavedItemsButtonClick}>
           <i className="awesome-text-gradient far fa-save"></i>
-          View saved items
+          { this.props.showText ? 'View saved items' : null }
         </button>
 
-        <div className="saved-items-panel">
+        <div className={`saved-items-panel ${open ? `open` : ''}`}>
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
             <i className="icon bookmark fas fa-archive"></i> Saved items
           </h2>
@@ -116,5 +120,10 @@ export default class SavedItems extends Component {
 
 SavedItems.propTypes = {
   onSavedItemsChange: PropTypes.func.isRequired,
-  savedItems: PropTypes.array
-}
+  savedItems: PropTypes.array,
+  showText: PropTypes.bool
+};
+
+SavedItems.defaultProps = {
+  showText: true
+};
