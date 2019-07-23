@@ -1,8 +1,12 @@
 .navbar {
-  max-width: 100%;
+  max-width: calc(100% - 16px);
   max-height: 60px;
   text-align: center;
   transition: 0.5s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
   flex: 1 1 auto;
 }
 
@@ -21,6 +25,11 @@
   cursor: pointer;
 }
 
+.navbar .list-button {
+  font-size: 18px;
+
+}
+
 .navbar .button-default {
   padding: 5px;
   margin: 15px;
@@ -29,4 +38,16 @@
 .navbar .button-default .far,
 .navbar .button-default .fas {
   margin-right: 5px;
+}
+
+@media screen and (max-width: 728px) {
+  .navbar .button-default {
+    display: none;
+  }  
+}
+
+@media screen and (min-width: 728px) {
+  .navbar .list-button {
+    display: none !important;
+  }
 }

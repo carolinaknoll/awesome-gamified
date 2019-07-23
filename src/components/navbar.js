@@ -8,10 +8,13 @@ export default function Navbar({
   toggleTheme,
   onSavedItemsChange,
   onNavbarClick,
+  onListButtonClick,
   savedItems
 }) {
   return (
     <div className="navbar">
+      <i className="awesome-text-gradient fas fa-list list-button" onClick={onListButtonClick}></i>
+
       <h3 className="awesome-text-gradient title" onClick={onNavbarClick}>
         <i className="fas fa-glasses"></i> Awesome Gamified
       </h3>

@@ -61,3 +61,9 @@
   display: inline;
   pointer-events: none;
 }
+
+@media screen and (max-width: 728px) {
+  .subjects {
+    width: 100%;
+  }
+}

@@ -33,6 +33,26 @@ a {
   font-weight: bold;
 }
 
+@media screen and (max-width: 728px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    width: 100%;
+  }
+
+  .mobile-none {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 728px) {
+  .mobile {
+    display: none;
+  }
+}
+
 .right-container {
   width: 100%;
   overflow: auto;
