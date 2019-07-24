@@ -14,6 +14,7 @@ export default class AwesomeGamified extends Component {
     this.state = {
       clickedTopic: '',
       isNightlyTheme: true,
+      isSubjectsTreeOpen: false
     }
   }
 
@@ -37,8 +38,12 @@ export default class AwesomeGamified extends Component {
     this.setState({clickedTopic: ''});
   }
 
+  onListButtonClick = () => {
+    this.setState({isSubjectsTreeOpen: !this.state.isSubjectsTreeOpen});
+  }
+
   render() {
-    const {isNightlyTheme} = this.state;
+    const {isNightlyTheme, isSubjectsTreeOpen, clickedTopic} = this.state;
 
     return (
       <div className={isNightlyTheme ? 'nightly-theme' : 'brightly-theme'}>
@@ -53,27 +58,49 @@ export default class AwesomeGamified extends Component {
           isNightlyTheme={this.state.isNightlyTheme}
           onSavedItemsChange={this.onSavedItemsChange}
           onNavbarClick={this.onNavbarClick}
+          onListButtonClick={this.onListButtonClick}
           savedItems={this.state.savedItems}
         />
 
         <div className="content-container">
-          <div className="left-container">
+          <div className="left-container desktop">
             <SubjectsTree
               onTopicClick={this.onTopicClick}
             />
           </div>
 
-          <div className="right-container">
+          <div className="right-container desktop">
             <Header
               clickedTopic={this.state.clickedTopic}
             />
 
-            <TopicList
-              clickedTopic={this.state.clickedTopic}
-              onSavedItemsChange={this.onSavedItemsChange}
-              savedItems={this.state.savedItems}
-            />
+            { clickedTopic ?
+              <TopicList
+                clickedTopic={this.state.clickedTopic}
+                onSavedItemsChange={this.onSavedItemsChange}
+                savedItems={this.state.savedItems}
+              /> : null }
           </div>
+
+          { isSubjectsTreeOpen ?
+            <div className="mobile mobile-subjectsTree">
+              <SubjectsTree
+                onTopicClick={this.onTopicClick}
+              />
+            </div> : null }
+
+            <div className={`right-container mobile ${isSubjectsTreeOpen ? 'mobile-none' : ''}`}>
+              <Header
+                clickedTopic={this.state.clickedTopic}
+              />
+
+            { clickedTopic ?
+              <TopicList
+                clickedTopic={this.state.clickedTopic}
+                onSavedItemsChange={this.onSavedItemsChange}
+                savedItems={this.state.savedItems}
+              /> : null }
+            </div>
         </div>
 
         <Footer />

@@ -1,7 +1,7 @@
 body {
   box-sizing: border-box;
   font-family: 'Titillium Web', sans-serif;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 html, body {
@@ -9,6 +9,12 @@ html, body {
   margin: 0;
   width: 100%;
   line-height: 1.5;
+}
+
+#root, #root > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 button {
@@ -27,12 +33,30 @@ a {
   font-weight: bold;
 }
 
+@media screen and (max-width: 728px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile-none {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 728px) {
+  .mobile {
+    display: none;
+  }
+}
+
 .right-container {
   width: 100%;
+  overflow: auto;
 }
 
 .content-container {
-  height: 100%;
+  flex: 1 1 auto;
+  overflow: hidden;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -64,4 +88,8 @@ a {
 .navbar .fas,
 .header .fas {
   display: initial;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
 }

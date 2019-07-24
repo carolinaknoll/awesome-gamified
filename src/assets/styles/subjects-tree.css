@@ -1,6 +1,6 @@
 .subjects {
   width: 300px;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   transition: 0.5s;
 }
@@ -60,4 +60,14 @@
 .subject-topic-list-container .topic-name {
   display: inline;
   pointer-events: none;
+}
+
+@media screen and (max-width: 728px) {
+  .subjects {
+    width: 100%;
+  }
+
+  .mobile-subjectsTree {
+    width: 100%;
+  }
 }

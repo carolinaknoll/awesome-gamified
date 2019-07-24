@@ -8,20 +8,39 @@ export default function Navbar({
   toggleTheme,
   onSavedItemsChange,
   onNavbarClick,
+  onListButtonClick,
   savedItems
 }) {
   return (
     <div className="navbar">
+      <i className="awesome-text-gradient fas fa-list list-button" onClick={onListButtonClick}></i>
+
       <h3 className="awesome-text-gradient title" onClick={onNavbarClick}>
         <i className="fas fa-glasses"></i> Awesome Gamified
       </h3>
 
-      <ToggleTheme isNightlyTheme={isNightlyTheme} toggleTheme={toggleTheme} />
+      <div className="desktop">
+        <SavedItems
+          onSavedItemsChange={onSavedItemsChange}
+          savedItems={savedItems}
+        />
+      </div>
 
-      <SavedItems
-        onSavedItemsChange={onSavedItemsChange}
-        savedItems={savedItems}
-      />
+      <div className="mobile">
+        <SavedItems
+          onSavedItemsChange={onSavedItemsChange}
+          savedItems={savedItems}
+          showText={false}
+        />
+      </div>
+
+      <div className="desktop">
+        <ToggleTheme isNightlyTheme={isNightlyTheme} toggleTheme={toggleTheme} />
+      </div>
+
+      <div className="mobile">
+        <ToggleTheme isNightlyTheme={isNightlyTheme} toggleTheme={toggleTheme} showText={false} />
+      </div>      
     </div>
   );
 }
