@@ -68,7 +68,7 @@ export default class TopicList extends Component {
   }
 
   addButtonsToListElements = (parsedMarkdown) => {
-    let startingHtmlString = `<li><span><button class="seen button-default">[Seen]</button><button class="button-default">[<i class="bookmark fas fa-star"></i>]</button>`;
+    let startingHtmlString = `<li><span><button class="seen button-default">[Seen]</button><button class="bookmark button-default">[<i class="fas fa-star"></i>]</button>`;
     let endingHtmlString = `</span></li>`;
 
     parsedMarkdown = parsedMarkdown
