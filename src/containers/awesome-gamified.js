@@ -82,12 +82,11 @@ export default class AwesomeGamified extends Component {
               /> : null }
           </div>
 
-          { isSubjectsTreeOpen ?
-            <div className="mobile mobile-subjectsTree">
+            <div className={`mobile mobile-subjectsTree ${!isSubjectsTreeOpen ? 'mobile-none' : ''}`}>
               <SubjectsTree
                 onTopicClick={this.onTopicClick}
               />
-            </div> : null }
+            </div>
 
             <div className={`right-container mobile ${isSubjectsTreeOpen ? 'mobile-none' : ''}`}>
               <Header
