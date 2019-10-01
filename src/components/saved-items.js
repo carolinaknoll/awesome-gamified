@@ -80,6 +80,21 @@ export default class SavedItems extends Component {
     }
   }
 
+  exportSavedBookmarks = () => {
+    const savedItems = localStorage.getItem('SavedAwesomeLists')
+
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent(savedItems)}`);
+    element.setAttribute('download', 'SavedList.json');
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  }
+
 	render() {
     const {open} = this.state;
 
@@ -96,6 +111,16 @@ export default class SavedItems extends Component {
           </h2>
 
           <p>The items you have marked as seen or bookmarked are shown below.</p>
+
+          <button className="button-default saved-items-button" onClick={this.exportSavedBookmarks}>
+            <i className="awesome-text-gradient fas fa-file-download"></i>
+            Export items
+          </button>
+
+          <button className="button-default saved-items-button">
+            <i className="awesome-text-gradient fas fa-file-upload"></i>
+            Import items
+          </button>
 
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
             <i className="icon bookmark fas fa-star"></i> Bookmarked
