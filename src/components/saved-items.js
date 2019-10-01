@@ -1,11 +1,11 @@
-import React, {Component}  from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {notifyAction} from '../common/helpers';
+import { notifyAction } from '../common/helpers';
 
 export default class SavedItems extends Component {
   state = {
     open: false
-  }  
+  }
 
   handleSavedItemsButtonClick = () => {
     this.setState({ open: !this.state.open });
@@ -17,6 +17,11 @@ export default class SavedItems extends Component {
 
   getSavedBookmarks = () => {
     return this.getSavedItems('savedBookmarks');
+  }
+
+  getItemCount = (item) => {
+    const savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists'));
+    return (<span className="badge-count">{savedItems[0] && savedItems[0][item].length}</span>)
   }
 
   getSavedItems = (savedItemName) => {
@@ -80,14 +85,14 @@ export default class SavedItems extends Component {
     }
   }
 
-	render() {
-    const {open} = this.state;
+  render() {
+    const { open } = this.state;
 
     return (
       <div className="saved-items-panel-container">
         <button className="button-default saved-items-button" onClick={this.handleSavedItemsButtonClick}>
           <i className="awesome-text-gradient far fa-save"></i>
-          { this.props.showText ? 'View saved items' : null }
+          {this.props.showText ? 'View saved items' : null}
         </button>
 
         <div className={`saved-items-panel ${open ? `open` : ''}`}>
@@ -98,7 +103,7 @@ export default class SavedItems extends Component {
           <p>The items you have marked as seen or bookmarked are shown below.</p>
 
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
-            <i className="icon bookmark fas fa-star"></i> Bookmarked
+            <i className="icon bookmark fas fa-star"></i> Bookmarked{this.getItemCount('savedBookmarks')}
           </h2>
 
           <div className="saved-items-container">
@@ -106,7 +111,7 @@ export default class SavedItems extends Component {
           </div>
 
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
-            <i className="icon bookmark fas fa-eye"></i> Seen
+            <i className="icon bookmark fas fa-eye"></i>Seen{this.getItemCount('savedSeen')}
           </h2>
 
           <div className="saved-items-container">
@@ -115,7 +120,7 @@ export default class SavedItems extends Component {
         </div>
       </div>
     );
-	}
+  }
 }
 
 SavedItems.propTypes = {
