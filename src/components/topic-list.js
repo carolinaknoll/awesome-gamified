@@ -36,19 +36,21 @@ export default class TopicList extends Component {
     });
   }
 
-  prepareRawAwesomeListRequest = () => {
+  getReadmeFile = () => {
     if (!this.props.clickedTopic) {
       return;
     }
+    axios.get(`https://api.github.com/repos/${this.props.clickedTopic}/readme`)
+    .then((res) => {
+      const { data: { download_url } }= res;
+      return this.getRawAwesomeListContent(download_url);;
+    })
+    .catch((error) => {
+      return null;
+  });}
 
-    const uppercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/README.md`;
-    const lowercasedReadmeUrl = `https://raw.githubusercontent.com/${this.props.clickedTopic}/master/readme.md`;
-
-    this.getRawAwesomeListContent(uppercasedReadmeUrl, function() {
-      if (this.state.errorMessage.includes('404')) {
-        this.getRawAwesomeListContent(lowercasedReadmeUrl);
-      }
-    });
+  prepareRawAwesomeListRequest = () => {
+    return this.getReadmeFile();
   }
 
   componentDidUpdate(prevProps) {
