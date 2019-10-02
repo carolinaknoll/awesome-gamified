@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
+import {toast} from 'react-toastify';
 import {notifyAction} from '../common/helpers';
 
 export default class SavedItems extends Component {
@@ -95,6 +96,35 @@ export default class SavedItems extends Component {
     document.body.removeChild(element);
   }
 
+  importSavedBookmarks = () => {
+    const fileInputField = document.querySelector('.file-input');
+    fileInputField.click();
+  }
+
+  handleImportedFileChange = (e) => {
+    let importedFile = e.target.files[0];
+    let formattedMessage = null;
+
+    if (importedFile.type === "application/json") {
+      formattedMessage = (
+        <span><i className="awesome-text-gradient fas fa-smile-wink"></i> Your file <span className="awesome-text-gradient bold">{importedFile.name}</span> has been <span className="bold">imported</span> succesfully</span>
+      );
+
+      const reader = new FileReader();
+      reader.readAsText(importedFile);
+      reader.onload = (e) => {
+        localStorage.setItem('SavedAwesomeLists', e.target.result);
+      }
+    } else {
+      formattedMessage = (
+        <span><i className="awesome-text-gradient far fa-frown"></i> Your file <span className="awesome-text-gradient bold">{importedFile.name}</span> couldn't be <span className="bold">imported</span></span>
+      );
+    }
+
+    toast(formattedMessage);
+    e.target.value = null;
+  }
+
 	render() {
     const {open} = this.state;
 
@@ -112,16 +142,21 @@ export default class SavedItems extends Component {
 
           <p>The items you have marked as seen or bookmarked are shown below.</p>
 
-          <button className="button-default saved-items-button" onClick={this.exportSavedBookmarks}>
-            <i className="awesome-text-gradient fas fa-file-download"></i>
-            Export items
-          </button>
+          <div className="import-export-button-container">
+            <button className="button-default saved-items-button" onClick={this.exportSavedBookmarks}>
+              <i className="awesome-text-gradient fas fa-file-download"></i>
+              Export items
+            </button>
 
-          <button className="button-default saved-items-button">
-            <i className="awesome-text-gradient fas fa-file-upload"></i>
-            Import items
-          </button>
-
+            <div className="import-container">
+              <input className="file-input" type="file" accept=".json" onChange={this.handleImportedFileChange}/>
+              <button className="button-default saved-items-button" onClick={this.importSavedBookmarks}>
+                <i className="awesome-text-gradient fas fa-file-upload"></i>
+                Import items
+              </button>
+            </div>
+          </div>
+          
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
             <i className="icon bookmark fas fa-star"></i> Bookmarked
           </h2>
