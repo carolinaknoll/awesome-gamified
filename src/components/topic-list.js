@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import marked from 'marked';
 import {SAVED_ITEM_TYPES} from '../common/variables';
-import {notifyAction} from '../common/helpers';
+import {compareObjects, notifyAction} from '../common/helpers';
 
 export default class TopicList extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class TopicList extends Component {
     axios.get(`https://api.github.com/repos/${this.props.clickedTopic}/readme`)
     .then((res) => {
       const { data: { download_url } }= res;
-      return this.getRawAwesomeListContent(download_url);;
+      return this.getRawAwesomeListContent(download_url);
     })
     .catch((error) => {
       return null;
@@ -118,13 +118,31 @@ export default class TopicList extends Component {
 
     let locationToSave = itemToSave.itemLocation;
 
-    savedItems[0][locationToSave].push(itemToSave);
+    const itemArray = savedItems[0][locationToSave];
 
-    localStorage.setItem('SavedAwesomeLists', JSON.stringify(savedItems));
+    // This checks if itemToSave is already present in the bookmark list
+    if (itemArray.some(ob => compareObjects(ob, itemToSave))) {
+      // Item already exists
+      notifyAction(
+        itemToSave.itemName,
+        itemToSave.itemLocation,
+        "fa-smile-wink",
+        "already added to"
+      );
+    } else {
+      savedItems[0][locationToSave].push(itemToSave);
 
-    this.props.onSavedItemsChange(savedItems);
+      localStorage.setItem("SavedAwesomeLists", JSON.stringify(savedItems));
 
-    notifyAction(itemToSave.itemName, itemToSave.itemLocation, 'fa-smile-wink', 'saved to');
+      this.props.onSavedItemsChange(savedItems);
+
+      notifyAction(
+        itemToSave.itemName,
+        itemToSave.itemLocation,
+        "fa-smile-wink",
+        "saved to"
+      );
+    }
   }
 
   renderTopicList = () => {

@@ -22,7 +22,7 @@
   .saved-items-panel.open {
     min-width: unset;
     max-width: 500px;
-  } 
+  }
 }
 
 .saved-items-panel.open p {
@@ -54,4 +54,16 @@
 
 .saved-items-panel .saved-items-container:last-of-type {
   padding-bottom: 20px;
+}
+
+.import-export-button-container {
+  display:flex;
+  justify-content: center;
+}
+
+.file-input {
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }
