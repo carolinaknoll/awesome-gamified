@@ -22,7 +22,7 @@
   .saved-items-panel.open {
     min-width: unset;
     max-width: 500px;
-  } 
+  }
 }
 
 .saved-items-panel.open p {
@@ -63,4 +63,15 @@
   font-size: 12px;
   background: rgba(215,115,515,0.1);
   border-radius: 30px;
+}
+.import-export-button-container {
+  display:flex;
+  justify-content: center;
+}
+
+.file-input {
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }
