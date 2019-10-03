@@ -33,10 +33,12 @@
 
 .subject-container {
   padding: 0 10px;
+  cursor: pointer;
 }
 
 .topic-container {
   margin: 0 10px;
+  cursor: pointer;
 }
 
 .subject-topic-list-container .topic-container:last-child {
