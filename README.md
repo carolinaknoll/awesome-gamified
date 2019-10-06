@@ -1,5 +1,10 @@
-## :eyeglasses: Awesome Gamified
-:bookmark: See your progress and save awesome links you've already seen!
+<h1 align="center">
+  :eyeglasses: Awesome Gamified
+</h1>
+
+<p align="center">
+  :bookmark: See your progress and save awesome links you've already seen!
+</p>
 
 ***
 
