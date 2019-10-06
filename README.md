@@ -1,8 +1,8 @@
-<h1 style="text-align: center">
+<h1 align="center">
   :eyeglasses: Awesome Gamified
 </h1>
 
-<p style="text-align: center">
+<p align="center">
   :bookmark: See your progress and save awesome links you've already seen!
 </p>
 
