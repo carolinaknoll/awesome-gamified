@@ -22,7 +22,8 @@ export default class SavedItems extends Component {
 
   getItemCount = (item) => {
     const savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists'));
-    return (<span className="badge-count">{savedItems && savedItems[0] && savedItems[0][item].length}</span>)
+    let savedItemsQuantity = (savedItems && savedItems[0] && savedItems[0][item].length) || 0;
+    return (<span className="badge-count">{savedItemsQuantity}</span>)
   }
 
   getSavedItems = (savedItemName) => {
