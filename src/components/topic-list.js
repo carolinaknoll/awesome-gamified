@@ -54,6 +54,16 @@ export default class TopicList extends Component {
     });
   }
 
+  // After user clicks a README topic for the first time,
+  // ensure that getReadmeFile is correctly called.
+  // Will only work on second click otherwise.
+  componentDidMount() {
+    this.getReadmeFile();
+  }
+
+  // For all subsequent calls, after component is mounted,
+  // check if the new topic list on this.props is different from previous on prevProps.
+  // This check prevents an infinite loop of axios calls.
   componentDidUpdate(prevProps) {
     if (this.props.clickedTopic !== prevProps.clickedTopic) {
       this.getReadmeFile();
