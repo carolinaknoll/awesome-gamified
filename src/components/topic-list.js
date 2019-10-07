@@ -40,22 +40,23 @@ export default class TopicList extends Component {
     if (!this.props.clickedTopic) {
       return;
     }
+
     axios.get(`https://api.github.com/repos/${this.props.clickedTopic}/readme`)
     .then((res) => {
-      const { data: { download_url } }= res;
+      const { data: { download_url } } = res;
       return this.getRawAwesomeListContent(download_url);
     })
     .catch((error) => {
-      return null;
-  });}
-
-  prepareRawAwesomeListRequest = () => {
-    return this.getReadmeFile();
+      this.setState({
+        errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}. ${error}.`,
+        topicMarkdown: ''
+      })
+    });
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.clickedTopic !== prevProps.clickedTopic) {
-      this.prepareRawAwesomeListRequest(prevProps);
+      this.getReadmeFile();
     }
   }
 
