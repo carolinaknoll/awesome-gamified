@@ -1,58 +1,75 @@
-import React, {Component}  from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import marked from 'marked';
-import {SAVED_ITEM_TYPES} from '../common/variables';
-import {compareObjects, notifyAction} from '../common/helpers';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+import marked from "marked";
+import { SAVED_ITEM_TYPES } from "../common/variables";
+import { compareObjects, notifyAction } from "../common/helpers";
+import Loader from "./loader";
 
 export default class TopicList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      errorMessage: '',
-      topicMarkdown: '',
+      errorMessage: "",
+      topicMarkdown: "",
+      isloading: false
     };
   }
 
-  getRawAwesomeListContent = (readmeUrl) => {
-    axios.get(readmeUrl)
-    .then((topicMarkdown) => {
-      this.setState({
-        topicMarkdown: topicMarkdown.data,
-        errorMessage: '',
-      });
-
-      if (!this.state.topicMarkdown) {
+  getRawAwesomeListContent = readmeUrl => {
+    // console.log("loading...");
+    this.setState({ isloading: true });
+    axios
+      .get(readmeUrl)
+      .then(topicMarkdown => {
         this.setState({
-          errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}.`
+          topicMarkdown: topicMarkdown.data,
+          errorMessage: "",
+          isloading: false
         });
-      }
-    }).catch((error) => {
-      this.setState({
-        errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}. ${error}.`,
-        topicMarkdown: ''
+        // console.log("listconxios");
+        if (!this.state.topicMarkdown) {
+          this.setState({
+            errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}.`,
+            isloading: false
+          });
+        }
+      })
+      .catch(error => {
+        this.setState({
+          errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}. ${error}.`,
+          topicMarkdown: "",
+          isloading: false
+        });
       });
-    });
-  }
+  };
 
   getReadmeFile = () => {
     if (!this.props.clickedTopic) {
       return;
     }
-
-    axios.get(`https://api.github.com/repos/${this.props.clickedTopic}/readme`)
-    .then((res) => {
-      const { data: { download_url } } = res;
-      return this.getRawAwesomeListContent(download_url);
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}. ${error}.`,
-        topicMarkdown: ''
+    this.setState({ isloading: true });
+    // console.log("redme");
+    axios
+      .get(`https://api.github.com/repos/${this.props.clickedTopic}/readme`)
+      .then(res => {
+        // console.log("done...");
+        this.setState({ isloading: false });
+        const {
+          data: { download_url }
+        } = res;
+        return this.getRawAwesomeListContent(download_url);
       })
-    });
-  }
+      .catch(error => {
+        console.log("done...");
+        this.setState({
+          errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}. ${error}.`,
+          topicMarkdown: "",
+          isloading: false
+        });
+      });
+  };
 
   // After user clicks a README topic for the first time,
   // ensure that getReadmeFile is correctly called.
@@ -66,6 +83,7 @@ export default class TopicList extends Component {
   // This check prevents an infinite loop of axios calls.
   componentDidUpdate(prevProps) {
     if (this.props.clickedTopic !== prevProps.clickedTopic) {
+      this.setState({ isloading: true });
       this.getReadmeFile();
     }
   }
@@ -74,13 +92,13 @@ export default class TopicList extends Component {
     let customMarked = marked;
 
     customMarked.setOptions({
-      breaks: true,
+      breaks: true
     });
 
     return customMarked;
   }
 
-  addButtonsToListElements = (parsedMarkdown) => {
+  addButtonsToListElements = parsedMarkdown => {
     let startingHtmlString = `<li><span><button class="seen button-default">[Seen]</button><button class="bookmark button-default">[<i class="fas fa-star"></i>]</button>`;
     let endingHtmlString = `</span></li>`;
 
@@ -89,43 +107,59 @@ export default class TopicList extends Component {
       .replace(/<\/li>/g, endingHtmlString);
 
     return parsedMarkdown;
-  }
+  };
 
-  handleTopicHtmlClick = (e) => {
-    let hasSeenClass = e.target.classList.contains('seen');
-    let hasBookmarkClass = e.target.classList.contains('bookmark');
+  handleTopicHtmlClick = e => {
+    let hasSeenClass = e.target.classList.contains("seen");
+    let hasBookmarkClass = e.target.classList.contains("bookmark");
 
     if (!hasSeenClass && !hasBookmarkClass) {
       return;
     }
 
-    let itemSubjectInfoContainer = document.querySelector('.topic-container.selected');
+    let itemSubjectInfoContainer = document.querySelector(
+      ".topic-container.selected"
+    );
 
-    let itemSubjectName = itemSubjectInfoContainer.parentElement.parentElement.getElementsByClassName('subject-title')[0].innerHTML;
-    let itemTopicName = itemSubjectInfoContainer.getElementsByClassName('topic-name')[0].innerHTML;
+    let itemSubjectName = itemSubjectInfoContainer.parentElement.parentElement.getElementsByClassName(
+      "subject-title"
+    )[0].innerHTML;
+    let itemTopicName = itemSubjectInfoContainer.getElementsByClassName(
+      "topic-name"
+    )[0].innerHTML;
 
     let itemToSave = {
       itemSubjectName: itemSubjectName,
-      itemTopicName: itemTopicName,
-    }
+      itemTopicName: itemTopicName
+    };
 
     if (hasSeenClass) {
-      itemToSave.itemName = e.target.parentElement.getElementsByTagName('a')[0].text;
-      itemToSave.itemUrl = e.target.parentElement.getElementsByTagName('a')[0].href;
-      itemToSave.itemLocation = 'savedSeen';
+      itemToSave.itemName = e.target.parentElement.getElementsByTagName(
+        "a"
+      )[0].text;
+      itemToSave.itemUrl = e.target.parentElement.getElementsByTagName(
+        "a"
+      )[0].href;
+      itemToSave.itemLocation = "savedSeen";
     }
 
     if (hasBookmarkClass) {
-      itemToSave.itemName = e.target.parentElement.parentElement.getElementsByTagName('a')[0].text;
-      itemToSave.itemUrl = e.target.parentElement.parentElement.getElementsByTagName('a')[0].href;
-      itemToSave.itemLocation = 'savedBookmarks';
+      itemToSave.itemName = e.target.parentElement.parentElement.getElementsByTagName(
+        "a"
+      )[0].text;
+      itemToSave.itemUrl = e.target.parentElement.parentElement.getElementsByTagName(
+        "a"
+      )[0].href;
+      itemToSave.itemLocation = "savedBookmarks";
     }
 
     this.saveNewItem(itemToSave);
-  }
+  };
 
-  saveNewItem = (itemToSave) => {
-    let savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists')) || [SAVED_ITEM_TYPES];
+  saveNewItem = itemToSave => {
+    let savedItems = JSON.parse(localStorage.getItem("SavedAwesomeLists")) || [
+      SAVED_ITEM_TYPES
+    ];
 
     let locationToSave = itemToSave.itemLocation;
 
@@ -154,7 +188,7 @@ export default class TopicList extends Component {
         "saved to"
       );
     }
-  }
+  };
 
   renderTopicList = () => {
     let customMarked = this.setupCustomMarked();
@@ -163,24 +197,34 @@ export default class TopicList extends Component {
       let parsedMarkdown = customMarked(this.state.topicMarkdown);
       parsedMarkdown = this.addButtonsToListElements(parsedMarkdown);
 
+      // if (this.state.isloading) {
+      //   return <Loader />
+      // } else if (this.state.isloading === false) {
       return (
-        <div dangerouslySetInnerHTML={{__html: parsedMarkdown}} onClick={this.handleTopicHtmlClick}></div>
-      )
+        <div
+          dangerouslySetInnerHTML={{ __html: parsedMarkdown }}
+          onClick={this.handleTopicHtmlClick}
+        ></div>
+      );
+      // }
     }
-  }
+  };
 
-	render() {
+  render() {
     return (
       <div className="topic-list-container">
-      {this.props.clickedTopic ? (
-        this.renderTopicList()
-      ) : null}
+        {/* {this.state.isloading ? <Loader /> : ""} */}
+        {this.props.clickedTopic && !this.state.isloading ? (
+          this.renderTopicList()
+        ) : (
+          <Loader />
+        )}
       </div>
     );
-	}
+  }
 }
 
 TopicList.propTypes = {
   onSavedItemsChange: PropTypes.func.isRequired,
   clickedTopic: PropTypes.string.isRequired
-}
+};

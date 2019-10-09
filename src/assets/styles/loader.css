@@ -1,0 +1,184 @@
+.loaderinnerdiv {
+  margin: 0 auto;
+  margin-top: 20%;
+  /* padding: 20%; */
+  /* width: 200%;
+  height: 200%; */
+}
+
+#inTurnFadingTextG {
+  width: 500px;
+  margin: auto;
+}
+
+.inTurnFadingTextG {
+  color: rgba(0, 212, 255, 0.93);
+  font-family: Arial;
+  font-size: 50px;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  float: left;
+  animation-name: bounce_inTurnFadingTextG;
+  -o-animation-name: bounce_inTurnFadingTextG;
+  -ms-animation-name: bounce_inTurnFadingTextG;
+  -webkit-animation-name: bounce_inTurnFadingTextG;
+  -moz-animation-name: bounce_inTurnFadingTextG;
+  animation-duration: 1.731s;
+  -o-animation-duration: 1.731s;
+  -ms-animation-duration: 1.731s;
+  -webkit-animation-duration: 1.731s;
+  -moz-animation-duration: 1.731s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+}
+
+#inTurnFadingTextG_1 {
+  animation-delay: 0.6125s;
+  -o-animation-delay: 0.6125s;
+  -ms-animation-delay: 0.6125s;
+  -webkit-animation-delay: 0.6125s;
+  -moz-animation-delay: 0.6125s;
+}
+#inTurnFadingTextG_2 {
+  animation-delay: 0.739s;
+  -o-animation-delay: 0.739s;
+  -ms-animation-delay: 0.739s;
+  -webkit-animation-delay: 0.739s;
+  -moz-animation-delay: 0.739s;
+}
+#inTurnFadingTextG_3 {
+  animation-delay: 0.8655s;
+  -o-animation-delay: 0.8655s;
+  -ms-animation-delay: 0.8655s;
+  -webkit-animation-delay: 0.8655s;
+  -moz-animation-delay: 0.8655s;
+}
+#inTurnFadingTextG_4 {
+  animation-delay: 0.992s;
+  -o-animation-delay: 0.992s;
+  -ms-animation-delay: 0.992s;
+  -webkit-animation-delay: 0.992s;
+  -moz-animation-delay: 0.992s;
+}
+#inTurnFadingTextG_5 {
+  animation-delay: 1.1085s;
+  -o-animation-delay: 1.1085s;
+  -ms-animation-delay: 1.1085s;
+  -webkit-animation-delay: 1.1085s;
+  -moz-animation-delay: 1.1085s;
+}
+#inTurnFadingTextG_6 {
+  animation-delay: 1.235s;
+  -o-animation-delay: 1.235s;
+  -ms-animation-delay: 1.235s;
+  -webkit-animation-delay: 1.235s;
+  -moz-animation-delay: 1.235s;
+}
+#inTurnFadingTextG_7 {
+  animation-delay: 1.3615s;
+  -o-animation-delay: 1.3615s;
+  -ms-animation-delay: 1.3615s;
+  -webkit-animation-delay: 1.3615s;
+  -moz-animation-delay: 1.3615s;
+}
+#inTurnFadingTextG_8 {
+  animation-delay: 1.478s;
+  -o-animation-delay: 1.478s;
+  -ms-animation-delay: 1.478s;
+  -webkit-animation-delay: 1.478s;
+  -moz-animation-delay: 1.478s;
+}
+#inTurnFadingTextG_9 {
+  animation-delay: 1.6045s;
+  -o-animation-delay: 1.6045s;
+  -ms-animation-delay: 1.6045s;
+  -webkit-animation-delay: 1.6045s;
+  -moz-animation-delay: 1.6045s;
+}
+#inTurnFadingTextG_10 {
+  animation-delay: 1.731s;
+  -o-animation-delay: 1.731s;
+  -ms-animation-delay: 1.731s;
+  -webkit-animation-delay: 1.731s;
+  -moz-animation-delay: 1.731s;
+}
+#inTurnFadingTextG_11 {
+  animation-delay: 1.8475s;
+  -o-animation-delay: 1.8475s;
+  -ms-animation-delay: 1.8475s;
+  -webkit-animation-delay: 1.8475s;
+  -moz-animation-delay: 1.8475s;
+}
+#inTurnFadingTextG_12 {
+  animation-delay: 1.974s;
+  -o-animation-delay: 1.974s;
+  -ms-animation-delay: 1.974s;
+  -webkit-animation-delay: 1.974s;
+  -moz-animation-delay: 1.974s;
+}
+#inTurnFadingTextG_13 {
+  animation-delay: 2.1005s;
+  -o-animation-delay: 2.1005s;
+  -ms-animation-delay: 2.1005s;
+  -webkit-animation-delay: 2.1005s;
+  -moz-animation-delay: 2.1005s;
+}
+
+@keyframes bounce_inTurnFadingTextG {
+  0% {
+    color: rgba(196, 43, 175, 0.91);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@-o-keyframes bounce_inTurnFadingTextG {
+  0% {
+    color: rgba(196, 43, 175, 0.91);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@-ms-keyframes bounce_inTurnFadingTextG {
+  0% {
+    color: rgba(196, 43, 175, 0.91);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@-webkit-keyframes bounce_inTurnFadingTextG {
+  0% {
+    color: rgba(196, 43, 175, 0.91);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@-moz-keyframes bounce_inTurnFadingTextG {
+  0% {
+    color: rgba(196, 43, 175, 0.91);
+  }
+
+  100% {
+    color: rgb(255, 255, 255);
+  }
+}
