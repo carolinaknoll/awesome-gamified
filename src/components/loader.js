@@ -31,7 +31,7 @@ export default function Loader() {
               </div>
 
               <div id="inTurnFadingTextG_8" className="inTurnFadingTextG">
-                {" "}
+                &ensp;
               </div>
               <div id="inTurnFadingTextG_9" className="inTurnFadingTextG">
                 O
@@ -40,7 +40,7 @@ export default function Loader() {
                 N
               </div>
               <div id="inTurnFadingTextG_11" className="inTurnFadingTextG">
-                {" "}
+                &ensp;
               </div>
               <div id="inTurnFadingTextG_12" className="inTurnFadingTextG">
                 I

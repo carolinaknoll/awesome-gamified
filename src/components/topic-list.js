@@ -18,7 +18,6 @@ export default class TopicList extends Component {
   }
 
   getRawAwesomeListContent = readmeUrl => {
-    // console.log("loading...");
     this.setState({ isloading: true });
     axios
       .get(readmeUrl)
@@ -28,7 +27,7 @@ export default class TopicList extends Component {
           errorMessage: "",
           isloading: false
         });
-        // console.log("listconxios");
+
         if (!this.state.topicMarkdown) {
           this.setState({
             errorMessage: `There was an error. Unable to load the Awesome list for ${this.props.clickedTopic}.`,
@@ -50,11 +49,10 @@ export default class TopicList extends Component {
       return;
     }
     this.setState({ isloading: true });
-    // console.log("redme");
+
     axios
       .get(`https://api.github.com/repos/${this.props.clickedTopic}/readme`)
       .then(res => {
-        // console.log("done...");
         this.setState({ isloading: false });
         const {
           data: { download_url }
@@ -197,9 +195,6 @@ export default class TopicList extends Component {
       let parsedMarkdown = customMarked(this.state.topicMarkdown);
       parsedMarkdown = this.addButtonsToListElements(parsedMarkdown);
 
-      // if (this.state.isloading) {
-      //   return <Loader />
-      // } else if (this.state.isloading === false) {
       return (
         <div
           dangerouslySetInnerHTML={{ __html: parsedMarkdown }}
@@ -213,7 +208,6 @@ export default class TopicList extends Component {
   render() {
     return (
       <div className="topic-list-container">
-        {/* {this.state.isloading ? <Loader /> : ""} */}
         {this.props.clickedTopic && !this.state.isloading ? (
           this.renderTopicList()
         ) : (
