@@ -1,0 +1,1 @@
+export const FETCH_SUBJECTS = "FETCH_SUBJECTS";
