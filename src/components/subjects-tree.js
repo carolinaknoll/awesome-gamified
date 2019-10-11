@@ -2,6 +2,7 @@ import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
 import SavedItems from "./saved-items";
 import ToggleTheme from "./toggle-theme";
+import SearchBar from './searchbar.js';
 import axios from 'axios';
 import {sortByNameAscending, toggleDifferentClasses} from '../common/helpers';
 
@@ -131,6 +132,11 @@ export default class SubjectsTree extends Component {
             Open/Close all subject topics
           </p>
         </div>
+        <SearchBar 
+          isNightlyTheme={this.props.isNightlyTheme} 
+          onTopicClick={this.props.onTopicClick} 
+          subjects={this.state.subjects}
+          />
         {this.renderSubjectTree()}
       </div>
     );
