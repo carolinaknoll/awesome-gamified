@@ -1,0 +1,57 @@
+.subjects .searchbar {
+    display: inline;
+    margin: 15px 10px;
+    padding: 15px 0px;
+}
+
+.subjects .searchbar .searchinput {
+    width: 90%;
+    margin: 15px 0px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.subjects .searchbar .searchinput.night {
+    background-color: black;
+    color: white;
+}
+
+.subjects .searchbar .searchresults {
+    width: 262px;
+    height: 400px;
+    position: absolute;
+    top: 200px;
+    padding: 5px;
+    left: 10px;
+    background-color: white;
+    border: none;
+    line-height: normal;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.subjects .searchbar .searchresults.night {
+    background-color: black;
+    color: white;
+}
+
+.subjects .searchbar .searchresults .topic-name {
+    cursor: pointer;
+    font-size: 15px;
+    color: black;
+}
+
+.subjects .searchbar .searchresults .topic-name.night {
+    color: white;
+}
+
+.subjects .searchbar .searchresults .topic-name:hover {
+    background-color: #d3d3d3;
+}
+
+.subjects .searchbar .searchresults .topic-name.night:hover {
+    background-color: #808080;
+}

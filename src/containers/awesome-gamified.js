@@ -68,6 +68,7 @@ class AwesomeGamified extends Component {
           <div className="left-container desktop">
             <SubjectsTree
               onTopicClick={this.onTopicClick}
+              isNightlyTheme={this.state.isNightlyTheme}
             />
           </div>
 
