@@ -56,14 +56,16 @@
   padding-bottom: 20px;
 }
 
-.badge-count{
+.badge-count {
   height: 20px;
-  width: 35px;
-  margin: 3px -12px 0 18px;  
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 5px 0 0 5px;   
   font-size: 12px;
   background: rgba(215,115,515,0.1);
   border-radius: 30px;
 }
+
 .import-export-button-container {
   display:flex;
   justify-content: center;
