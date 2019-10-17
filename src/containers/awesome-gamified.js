@@ -24,6 +24,8 @@ class AwesomeGamified extends Component {
     this.setState({
       clickedTopic: topic.repo,
     })
+    
+    document.title = `Awesome Gamified - ${topic.name}`;
   }
 
   onSavedItemsChange = (savedItems) => {
