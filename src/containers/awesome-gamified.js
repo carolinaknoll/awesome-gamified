@@ -90,6 +90,7 @@ class AwesomeGamified extends Component {
             <div className={`mobile mobile-subjectsTree ${!isSubjectsTreeOpen ? 'mobile-none' : ''}`}>
               <SubjectsTree
                 onTopicClick={this.onTopicClick}
+                isNightlyTheme={this.state.isNightlyTheme}
               />
             </div>
 
