@@ -1,11 +1,12 @@
-import React, {Component}  from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {notifyAction} from '../common/helpers';
+import { toast } from 'react-toastify';
+import { notifyAction } from '../common/helpers';
 
 export default class SavedItems extends Component {
   state = {
     open: false
-  }  
+  }
 
   handleSavedItemsButtonClick = () => {
     this.setState({ open: !this.state.open });
@@ -17,6 +18,12 @@ export default class SavedItems extends Component {
 
   getSavedBookmarks = () => {
     return this.getSavedItems('savedBookmarks');
+  }
+
+  getItemCount = (item) => {
+    const savedItems = JSON.parse(localStorage.getItem('SavedAwesomeLists'));
+    let savedItemsQuantity = (savedItems && savedItems[0] && savedItems[0][item].length) || 0;
+    return (<span className="badge-count">{savedItemsQuantity}</span>)
   }
 
   getSavedItems = (savedItemName) => {
@@ -80,14 +87,58 @@ export default class SavedItems extends Component {
     }
   }
 
-	render() {
-    const {open} = this.state;
+  exportSavedBookmarks = () => {
+    const savedItems = localStorage.getItem('SavedAwesomeLists')
+
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:text/plain;charset=utf-8,${encodeURIComponent(savedItems)}`);
+    element.setAttribute('download', 'SavedList.json');
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  }
+
+  importSavedBookmarks = () => {
+    const fileInputField = document.querySelector('.file-input');
+    fileInputField.click();
+  }
+
+  handleImportedFileChange = (e) => {
+    let importedFile = e.target.files[0];
+    let formattedMessage = null;
+
+    if (importedFile.type === "application/json") {
+      formattedMessage = (
+        <span><i className="awesome-text-gradient fas fa-smile-wink"></i> Your file <span className="awesome-text-gradient bold">{importedFile.name}</span> has been <span className="bold">imported</span> succesfully</span>
+      );
+
+      const reader = new FileReader();
+      reader.readAsText(importedFile);
+      reader.onload = (e) => {
+        localStorage.setItem('SavedAwesomeLists', e.target.result);
+      }
+    } else {
+      formattedMessage = (
+        <span><i className="awesome-text-gradient far fa-frown"></i> Your file <span className="awesome-text-gradient bold">{importedFile.name}</span> couldn't be <span className="bold">imported</span></span>
+      );
+    }
+
+    toast(formattedMessage);
+    e.target.value = null;
+  }
+
+  render() {
+    const { open } = this.state;
 
     return (
       <div className="saved-items-panel-container">
         <button className="button-default saved-items-button" onClick={this.handleSavedItemsButtonClick}>
           <i className="awesome-text-gradient far fa-save"></i>
-          { this.props.showText ? 'View saved items' : null }
+          {this.props.showText ? 'View saved items' : null}
         </button>
 
         <div className={`saved-items-panel ${open ? `open` : ''}`}>
@@ -97,8 +148,23 @@ export default class SavedItems extends Component {
 
           <p>The items you have marked as seen or bookmarked are shown below.</p>
 
+          <div className="import-export-button-container">
+            <button className="button-default saved-items-button" onClick={this.exportSavedBookmarks}>
+              <i className="awesome-text-gradient fas fa-file-download"></i>
+              Export items
+            </button>
+
+            <div className="import-container">
+              <input className="file-input" type="file" accept=".json" onChange={this.handleImportedFileChange} />
+              <button className="button-default saved-items-button" onClick={this.importSavedBookmarks}>
+                <i className="awesome-text-gradient fas fa-file-upload"></i>
+                Import items
+              </button>
+            </div>
+          </div>
+
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
-            <i className="icon bookmark fas fa-star"></i> Bookmarked
+            <i className="icon bookmark fas fa-star"></i> Bookmarked{this.getItemCount('savedBookmarks')}
           </h2>
 
           <div className="saved-items-container">
@@ -106,7 +172,7 @@ export default class SavedItems extends Component {
           </div>
 
           <h2 className="saved-items-type-title awesome-text-gradient heading-divider">
-            <i className="icon bookmark fas fa-eye"></i> Seen
+            <i className="icon bookmark fas fa-eye"></i>Seen{this.getItemCount('savedSeen')}
           </h2>
 
           <div className="saved-items-container">
@@ -115,7 +181,7 @@ export default class SavedItems extends Component {
         </div>
       </div>
     );
-	}
+  }
 }
 
 SavedItems.propTypes = {

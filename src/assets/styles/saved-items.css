@@ -22,7 +22,7 @@
   .saved-items-panel.open {
     min-width: unset;
     max-width: 500px;
-  } 
+  }
 }
 
 .saved-items-panel.open p {
@@ -54,4 +54,26 @@
 
 .saved-items-panel .saved-items-container:last-of-type {
   padding-bottom: 20px;
+}
+
+.badge-count {
+  height: 20px;
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 5px 0 0 5px;   
+  font-size: 12px;
+  background: rgba(215,115,515,0.1);
+  border-radius: 30px;
+}
+
+.import-export-button-container {
+  display:flex;
+  justify-content: center;
+}
+
+.file-input {
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
 }

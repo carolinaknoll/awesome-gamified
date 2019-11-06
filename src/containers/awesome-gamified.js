@@ -6,8 +6,10 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { connect } from "react-redux";
+import { fetchSubjects } from "../actions/actions";
 
-export default class AwesomeGamified extends Component {
+class AwesomeGamified extends Component {
   constructor(props) {
     super(props);
 
@@ -22,6 +24,8 @@ export default class AwesomeGamified extends Component {
     this.setState({
       clickedTopic: topic.repo,
     })
+    
+    document.title = `Awesome Gamified - ${topic.name}`;
   }
 
   onSavedItemsChange = (savedItems) => {
@@ -66,6 +70,7 @@ export default class AwesomeGamified extends Component {
           <div className="left-container desktop">
             <SubjectsTree
               onTopicClick={this.onTopicClick}
+              isNightlyTheme={this.state.isNightlyTheme}
             />
           </div>
 
@@ -85,6 +90,7 @@ export default class AwesomeGamified extends Component {
             <div className={`mobile mobile-subjectsTree ${!isSubjectsTreeOpen ? 'mobile-none' : ''}`}>
               <SubjectsTree
                 onTopicClick={this.onTopicClick}
+                isNightlyTheme={this.state.isNightlyTheme}
               />
             </div>
 
@@ -107,3 +113,10 @@ export default class AwesomeGamified extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  const { subjects } = state;
+  return { subjects };
+}
+
+export default connect(mapStateToProps, {fetchSubjects})(AwesomeGamified);

@@ -1,5 +1,10 @@
-## :eyeglasses: Awesome Gamified
-:bookmark: See your progress and save awesome links you've already seen!
+<h1 align="center">
+  :eyeglasses: Awesome Gamified
+</h1>
+
+<p align="center">
+  :bookmark: See your progress and save awesome links you've already seen!
+</p>
 
 ***
 
@@ -17,9 +22,6 @@ If you would like to run the project locally to contribute, please refer to the 
 
 :sparkles: A huge thank you to [Lockys](https://github.com/lockys) for his [AwesomeSearch](https://github.com/lockys/AwesomeSearch) project, which was an inspiration for Awesome Gamified.
 
-:sparkles: Thank you also to the users who contributed to Awesome Gamified! They are:
-- [José Neto](https://github.com/netojose)
-- [Anderson Souza](https://github.com/andersou)
-- [Willian S. Soares](https://github.com/willsoares)
+:sparkles: An immeasurable thank you also to the users who contributed to Awesome Gamified! You can check them out [here](https://github.com/carolinaknoll/awesome-gamified/graphs/contributors). Our contributors rock! :eyeglasses:
 
 And finally, thanks to everyone who contributed externally with comments and insights about how to improve the project.
