@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
-import SavedItems from "./saved-items";
-import ToggleTheme from "./toggle-theme";
+// import SavedItems from "./saved-items";
+// import ToggleTheme from "./toggle-theme";
 import SearchBar from './searchbar.js';
 import axios from 'axios';
 import {sortByNameAscending, toggleDifferentClasses} from '../common/helpers';
@@ -84,12 +84,62 @@ export default class SubjectsTree extends Component {
     });
   }
 
+  getTopicSubjects = (data) => {
+    let subjects = [];
+
+    if (!data) {
+      return subjects;
+    }
+
+    let parents = [];
+    let lastParent = null;
+
+    data.reduce((a, e) => {
+      let name = e.name;
+
+      let filtered = Object.keys(a).filter((item) => {
+        return name.startsWith(item);
+      });
+      
+      a[name] = name in a ? ++a[name] : 0;
+      
+      if(filtered.length === 0){
+        parents.push(name);
+        lastParent = name;
+        
+        subjects.push({ 'Topic': name, 'TopicData': e, 'Subjects': [] });
+      }
+      
+      if (lastParent) {
+        let subject = subjects.filter((item) => {
+          return item.Topic === lastParent;
+        })[0];
+          
+        if (subject) {
+          if (subject.Subjects.filter((obj) => { return obj === e; }).length === 0) {
+            if (name !== lastParent) {
+              subject.Subjects.push(e);
+            }
+          }
+        }
+      }
+      
+      return a;
+  }, {});
+
+    return subjects;
+  }
+
   renderSubjectTopics = (subjects, subject) => {
-    sortByNameAscending(subjects[subject]);
+    let data = subjects[subject];
 
-    console.log(`===== Rendering subject "${subject}" =====`, subjects[subject]);
+    sortByNameAscending(data);
 
-    return subjects[subject].map((topic) => {
+    let topicSubjects = this.getTopicSubjects(data);
+
+    console.log(topicSubjects);
+
+    return data.map((topic) => {
       return (
         <div key={topic.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, topic)}>
           <i className="topic-icon far fa-bookmark"></i>
