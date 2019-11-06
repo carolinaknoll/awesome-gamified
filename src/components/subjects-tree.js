@@ -137,16 +137,44 @@ export default class SubjectsTree extends Component {
 
     let topicSubjects = this.getTopicSubjects(data);
 
-    console.log(topicSubjects);
+    //console.log(topicSubjects);
 
-    return data.map((topic) => {
-      return (
-        <div key={topic.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, topic)}>
+    return topicSubjects.map((item) => {
+      let divObj = <div></div>
+
+      if (item.Subjects.length > 0) {
+        let subjectDivs = item.Subjects.map((subjectItem) => {
+          return (
+            <div key={subjectItem.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, subjectItem)}>
+              <i className="topic-icon far fa-bookmark"></i>
+              <p className="topic-name">{subjectItem.name}</p>
+            </div>
+          )
+        })
+
+        divObj = <div key={item.TopicData.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, item.TopicData)}>
+        <i className="topic-icon far fa-bookmark"></i>
+        <p className="topic-name">{item.Topic}</p>
+        {subjectDivs}
+      </div>
+      } else {
+        divObj = <div key={item.TopicData.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, item.TopicData)}>
           <i className="topic-icon far fa-bookmark"></i>
-          <p className="topic-name">{topic.name}</p>
+          <p className="topic-name">{item.Topic}</p>
         </div>
-      )
+      }
+
+      return divObj;
     })
+
+    // return data.map((topic) => {
+    //   return (
+    //     <div key={topic.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, topic)}>
+    //       <i className="topic-icon far fa-bookmark"></i>
+    //       <p className="topic-name">{topic.name}</p>
+    //     </div>
+    //   )
+    // })
   }
 
   handleTopicClick = (e, topic) => {
