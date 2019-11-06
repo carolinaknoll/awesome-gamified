@@ -1,7 +1,5 @@
 import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
-import SavedItems from "./saved-items";
-import ToggleTheme from "./toggle-theme";
 import axios from 'axios';
 import {sortByNameAscending, toggleDifferentClasses} from '../common/helpers';
 
@@ -85,6 +83,8 @@ export default class SubjectsTree extends Component {
 
   renderSubjectTopics = (subjects, subject) => {
     sortByNameAscending(subjects[subject]);
+
+    console.log(`===== Rendering subject "${subject}" =====`, subjects[subject]);
 
     return subjects[subject].map((topic) => {
       return (
