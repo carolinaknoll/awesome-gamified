@@ -91,7 +91,6 @@ export default class SubjectsTree extends Component {
       return subjects;
     }
 
-    let parents = [];
     let lastParent = null;
 
     data.reduce((a, e) => {
@@ -104,7 +103,6 @@ export default class SubjectsTree extends Component {
       a[name] = name in a ? ++a[name] : 0;
       
       if(filtered.length === 0){
-        parents.push(name);
         lastParent = name;
         
         subjects.push({ 'Topic': name, 'TopicData': e, 'Subjects': [] });
@@ -125,7 +123,7 @@ export default class SubjectsTree extends Component {
       }
       
       return a;
-  }, {});
+    }, {});
 
     return subjects;
   }
