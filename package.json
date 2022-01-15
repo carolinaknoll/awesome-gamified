@@ -25,7 +25,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "gh-pages": "^2.1.1",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
