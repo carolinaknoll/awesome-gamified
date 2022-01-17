@@ -23,7 +23,7 @@
   },
   "homepage": "https://carolinaknoll.github.io/awesome-gamified",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "gh-pages": "^2.1.1",
     "marked": "^4.0.10",
     "normalize.css": "^8.0.1",
