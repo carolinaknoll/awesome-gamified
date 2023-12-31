@@ -1,7 +1,7 @@
 import React, {Component}  from 'react';
 import PropTypes from 'prop-types';
-import SavedItems from "./saved-items";
-import ToggleTheme from "./toggle-theme";
+// import SavedItems from "./saved-items";
+// import ToggleTheme from "./toggle-theme";
 import SearchBar from './searchbar.js';
 import axios from 'axios';
 import {sortByNameAscending, toggleDifferentClasses} from '../common/helpers';
@@ -84,17 +84,95 @@ export default class SubjectsTree extends Component {
     });
   }
 
-  renderSubjectTopics = (subjects, subject) => {
-    sortByNameAscending(subjects[subject]);
+  getTopicSubjects = (data) => {
+    let subjects = [];
 
-    return subjects[subject].map((topic) => {
-      return (
-        <div key={topic.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, topic)}>
+    if (!data) {
+      return subjects;
+    }
+
+    let lastParent = null;
+
+    data.reduce((a, e) => {
+      let name = e.name;
+
+      let filtered = Object.keys(a).filter((item) => {
+        return name.startsWith(item);
+      });
+      
+      a[name] = name in a ? ++a[name] : 0;
+      
+      if(filtered.length === 0){
+        lastParent = name;
+        
+        subjects.push({ 'Topic': name, 'TopicData': e, 'Subjects': [] });
+      }
+      
+      if (lastParent) {
+        let subject = subjects.filter((item) => {
+          return item.Topic === lastParent;
+        })[0];
+          
+        if (subject) {
+          if (subject.Subjects.filter((obj) => { return obj === e; }).length === 0) {
+            if (name !== lastParent) {
+              subject.Subjects.push(e);
+            }
+          }
+        }
+      }
+      
+      return a;
+    }, {});
+
+    return subjects;
+  }
+
+  renderSubjectTopics = (subjects, subject) => {
+    let data = subjects[subject];
+
+    sortByNameAscending(data);
+
+    let topicSubjects = this.getTopicSubjects(data);
+
+    //console.log(topicSubjects);
+
+    return topicSubjects.map((item) => {
+      let divObj = <div></div>
+
+      if (item.Subjects.length > 0) {
+        let subjectDivs = item.Subjects.map((subjectItem) => {
+          return (
+            <div key={subjectItem.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, subjectItem)}>
+              <i className="topic-icon far fa-bookmark"></i>
+              <p className="topic-name">{subjectItem.name}</p>
+            </div>
+          )
+        })
+
+        divObj = <div key={item.TopicData.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, item.TopicData)}>
+        <i className="topic-icon far fa-bookmark"></i>
+        <p className="topic-name">{item.Topic}</p>
+        {subjectDivs}
+      </div>
+      } else {
+        divObj = <div key={item.TopicData.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, item.TopicData)}>
           <i className="topic-icon far fa-bookmark"></i>
-          <p className="topic-name">{topic.name}</p>
+          <p className="topic-name">{item.Topic}</p>
         </div>
-      )
+      }
+
+      return divObj;
     })
+
+    // return data.map((topic) => {
+    //   return (
+    //     <div key={topic.url} className="topic-container" onClick={(e) => this.handleTopicClick(e, topic)}>
+    //       <i className="topic-icon far fa-bookmark"></i>
+    //       <p className="topic-name">{topic.name}</p>
+    //     </div>
+    //   )
+    // })
   }
 
   handleTopicClick = (e, topic) => {
